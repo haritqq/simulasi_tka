@@ -26,6 +26,15 @@
     <label>Nomor Absen
       <input id="no_absen" type="text" placeholder="Contoh: 01">
     </label>
+
+    <label for="mata_pelajaran">Mata Pelajaran:</label>
+        <select name="mata_pelajaran" id="mata_pelajaran" required>
+            <option value="Bahasa Indonesia">Bahasa Indonesia</option>
+            <option value="Matematika">Matematika</option>
+            <option value="IPA">IPA</option>
+        </select>
+
+
     <button id="mulai" class="btn">Mulai Ujian</button>
   </div>
 
@@ -33,6 +42,7 @@
     document.getElementById('mulai').addEventListener('click', ()=>{
       const nama = document.getElementById('nama').value.trim();
       const no = document.getElementById('no_absen').value.trim();
+      
       if(!nama || !no){
         alert('Isi nama dan nomor absen terlebih dahulu.');
         return;

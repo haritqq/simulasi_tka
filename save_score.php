@@ -1,5 +1,8 @@
 <!-- FILE: save_score.php -->
 <?php
+
+
+
 require 'db.php';
 // menerima POST JSON
 $data = json_decode(file_get_contents('php://input'), true);
@@ -10,8 +13,8 @@ $score = intval($data['score'] ?? 0);
 $jawaban = json_encode($data['jawaban'] ?? []);
 
 try{
-    $stmt = $pdo->prepare('INSERT INTO siswa_scores (nama,no_absen,score,jawaban) VALUES (?,?,?,?)');
-    $stmt->execute([$nama,$no,$score,$jawaban]);
+    $stmt = $pdo->prepare("INSERT INTO siswa_scores (nama,no_absen,mata_pelajaran,score,jawaban) VALUES (?,?,?,?,?)");
+    $stmt->execute([$nama,$no_absen,$mata_pelajaran,$score,json_encode($jawaban)]);
     echo json_encode(['ok'=>true]);
 }catch(Exception $e){
     http_response_code(500);

@@ -1,6 +1,15 @@
-<!-- FILE: exam.php -->
-<?php // Halaman ujian - menampilkan soal berbasis data JS
+<?php
+$nama = $_POST['nama'];
+$no_absen = $_POST['no_absen'];
+$mata_pelajaran = $_POST['mata_pelajaran'];
 ?>
+<script>
+  const siswaInfo = {
+    nama: "<?= htmlspecialchars($nama) ?>",
+    no_absen: "<?= htmlspecialchars($no_absen) ?>",
+    mata_pelajaran: "<?= htmlspecialchars($mata_pelajaran) ?>"
+  };
+</script>
 <!doctype html>
 <html lang="id">
 <head>
@@ -43,3 +52,11 @@
   <script src="script.js"></script>
 </body>
 </html>
+
+<?php if ($mata_pelajaran === 'Matematika'): ?>
+  <script src="questions_mtk.js"></script>
+<?php elseif ($mata_pelajaran === 'IPA'): ?>
+  <script src="questions_ipa.js"></script>
+<?php else: ?>
+  <script src="questions_bi.js"></script>
+<?php endif; ?>
