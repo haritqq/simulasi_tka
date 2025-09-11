@@ -1,6 +1,5 @@
 <!-- FILE: db.php -->
 <?php
-// sesuaikan dengan konfigurasi Anda
 $DB_HOST = 'localhost';
 $DB_NAME = 'simulasi_tka';
 $DB_USER = 'root';
