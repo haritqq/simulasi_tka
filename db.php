@@ -1,10 +1,9 @@
 <!-- FILE: db.php -->
 <?php
-// sesuaikan dengan konfigurasi Anda
-$DB_HOST = 'localhost';
-$DB_NAME = 'simulasi_tka';
-$DB_USER = 'root';
-$DB_PASS = '';
+$DB_HOST = 'localhost:3306';
+$DB_NAME = 'smabnasc_simulasi_tka';
+$DB_USER = 'smabnasc_admintka';
+$DB_PASS = 'admintkasman8';
 
 try {
     $pdo = new PDO("mysql:host=$DB_HOST;dbname=$DB_NAME;charset=utf8mb4", $DB_USER, $DB_PASS, [
