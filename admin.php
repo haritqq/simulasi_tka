@@ -86,12 +86,14 @@ $rows = $stmt->fetchAll();
       <div style="overflow:auto">
         <table class="table">
           <thead>
-            <tr><th>No</th><th>Nama</th><th>No. Absen</th><th>Nilai</th><th>Waktu Kirim</th><th>Jawaban (preview)</th></tr>
+            <tr><th>No</th><th>Mata Pelajaran</th><th>Kelas</th><th>Nama</th><th>No. Absen</th><th>Nilai</th><th>Waktu Kirim</th><th>Jawaban (preview)</th></tr>
           </thead>
           <tbody>
             <?php foreach($rows as $i => $r): ?>
               <tr>
                 <td><?php echo $i+1; ?></td>
+                <td><?php echo htmlspecialchars($r['mata_pelajaran']); ?></td>
+                <td><?php echo htmlspecialchars($r['mata_pelajaran']); ?></td>
                 <td><?php echo htmlspecialchars($r['nama']); ?></td>
                 <td><?php echo htmlspecialchars($r['no_absen']); ?></td>
                 <td><?php echo htmlspecialchars($r['score']); ?></td>
