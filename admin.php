@@ -93,7 +93,7 @@ $rows = $stmt->fetchAll();
               <tr>
                 <td><?php echo $i+1; ?></td>
                 <td><?php echo htmlspecialchars($r['mata_pelajaran']); ?></td>
-                <td><?php echo htmlspecialchars($r['mata_pelajaran']); ?></td>
+                <td><?php echo htmlspecialchars($r['kelas']); ?></td>
                 <td><?php echo htmlspecialchars($r['nama']); ?></td>
                 <td><?php echo htmlspecialchars($r['no_absen']); ?></td>
                 <td><?php echo htmlspecialchars($r['score']); ?></td>
