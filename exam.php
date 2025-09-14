@@ -34,6 +34,7 @@
   </div>
 
   <script>
+    // SCRIPT LOADER DINAMIS v3 (Paling Aman)
     const mapel = sessionStorage.getItem('sim_mapel');
     let questionFile = '';
 
@@ -57,20 +58,24 @@
         const questionScript = document.createElement('script');
         questionScript.src = questionFile;
         
-        // **BAGIAN PENTING:**
-        // script.js baru akan dimuat SETELAH questionScript selesai dimuat.
+        // Langkah 1: Setelah file soal dimuat...
         questionScript.onload = function() {
             const mainScript = document.createElement('script');
             mainScript.src = 'script.js';
+
+            // Langkah 2: ...muat file script utama. Setelah itu...
+            mainScript.onload = function() {
+                // Langkah 3: ...jalankan fungsi startExam() yang ada di dalamnya.
+                startExam(); 
+            };
+            
             document.body.appendChild(mainScript);
         };
         
         document.body.appendChild(questionScript);
     } else {
-        // Fallback jika terjadi error
         alert("Tidak bisa memuat soal, mata pelajaran tidak ditemukan.");
     }
   </script>
-  
-  </body>
+</body>
 </html>
