@@ -23,7 +23,7 @@
     <input id="nama" name="nama" type="text" placeholder="Nama lengkap" required>
     
     <label for="no_absen">NISN</label>
-    <input id="no_absen" name="no_absen" type="text" placeholder="Contoh: 12345678" required>
+    <input id="no_absen" name="no_absen" type="number" maxlength="10" placeholder="Contoh: 12345678" required>
     
     <label for="kelas">Kelas</label>
     <select name="kelas" id="kelas" required>

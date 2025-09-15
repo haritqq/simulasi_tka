@@ -114,6 +114,8 @@ function startExam() {
     const mapel = sessionStorage.getItem('sim_mapel');
 
     const score = computeScore();
+    // BARIS TAMBAHAN: Simpan data soal untuk halaman hasil
+    sessionStorage.setItem('sim_questions', JSON.stringify(QUESTIONS));
     const payload = {
       nama: nama,
       no_absen: no,

@@ -42,40 +42,61 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   <script>
+    // --- PERBAIKAN DIMULAI DI SINI ---
+
+    // 1. Ambil data soal yang sudah disimpan dari sessionStorage
+    const QUESTIONS = JSON.parse(sessionStorage.getItem('sim_questions') || '[]');
+    const totalQuestions = QUESTIONS.length > 0 ? QUESTIONS.length : 10; // Default 10 jika gagal
+
+    // 2. Ambil parameter lain dari URL dan sessionStorage
     const params = new URLSearchParams(location.search);
     const score = params.get('score') || 0;
-    document.getElementById('scoreValue').textContent = score + ' / ' + ${QUESTIONS.length};
     const nama = sessionStorage.getItem('sim_nama') || '---';
     const no = sessionStorage.getItem('sim_no') || '---';
-    document.getElementById('meta').textContent = nama + ' — Absen: ' + no;
+    const mapel = sessionStorage.getItem('sim_mapel') || 'Bahasa Indonesia';
+
+    // 3. Tampilkan skor dengan benar
+    document.getElementById('scoreValue').textContent = score + ' / ' + totalQuestions;
+    // document.getElementById('meta').textContent = nama + ' — Absen: ' + no;
 
     document.getElementById('exportPdf').addEventListener('click', async ()=>{
-      // ambil jawaban dari server? Kita ambil dari sessionStorage
+      if (QUESTIONS.length === 0) {
+        alert('Data soal tidak ditemukan untuk membuat PDF.');
+        return;
+      }
+      
       const answers = JSON.parse(sessionStorage.getItem('sim_answers') || '[]');
       const { jsPDF } = window.jspdf;
       const doc = new jsPDF();
-      const title = 'Simulasi TKA - ' + nama.replace(/\s+/g,'_');
+      
       doc.setFontSize(16);
-      doc.text('Simulasi TKA - Bahasa Indonesia',14,18);
+      doc.text('Simulasi TKA - ' + mapel, 14, 18);
       doc.setFontSize(11);
-      doc.text('Nama: '+nama,14,28);
-      doc.text('No. Absen: '+no,14,34);
-      doc.text('Nilai: '+score+' / '+${QUESTIONS.length},14,40);
-      doc.text('Tanggal: '+(new Date()).toLocaleString('id-ID'),14,46);
+      doc.text('Nama: ' + nama, 14, 28);
+      doc.text('No. Absen: ' + no, 14, 34);
+      doc.text('Nilai: ' + score + ' / ' + totalQuestions, 14, 40);
+      doc.text('Tanggal: ' + (new Date()).toLocaleString('id-ID'), 14, 46);
 
       let y = 56;
-      ${'/*'} masukkan soal dan jawaban */
-      const Q = ${JSON.stringify(QUESTIONS)};
-      for(let i=0;i<Q.length;i++){
-        const q = Q[i];
-        const jaw = answers[i]===undefined?'-':q.choices[answers[i]];
-        const lines = doc.splitTextToSize((i+1)+'. '+q.text, 180);
-        doc.text(lines,14,y); y+= lines.length*6;
-        doc.text('Jawaban Siswa: '+jaw,18,y); y+=8;
-        if(y>270){ doc.addPage(); y=20; }
+      for(let i = 0; i < QUESTIONS.length; i++) {
+        const q = QUESTIONS[i];
+        const userAnswerIndex = answers[i];
+        const userAnswerText = userAnswerIndex !== undefined ? q.choices[userAnswerIndex] : '-';
+        
+        const lines = doc.splitTextToSize((i + 1) + '. ' + q.text, 180);
+        doc.text(lines, 14, y); 
+        y += lines.length * 6;
+        
+        doc.text('Jawaban Siswa: ' + userAnswerText, 18, y); 
+        y += 8;
+        
+        if(y > 270) { 
+          doc.addPage(); 
+          y = 20; 
+        }
       }
 
-      doc.save('simulasi_tka_'+nama.replace(/\s+/g,'_')+'.pdf');
+      doc.save('simulasi_tka_' + nama.replace(/\s+/g, '_') + '.pdf');
     });
   </script>
 </body>
