@@ -5,150 +5,93 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Login - Simulasi TKA</title>
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
-  
   <style>
-    html, body {
-      height: 100%; /* Penting: Atur tinggi html dan body menjadi 100% */
-      margin: 0;
-      font-family: system-ui, Segoe UI, Roboto, Arial;
-    }
-    body {
-      background: linear-gradient(120deg, #e6f0ff, #fff);
-      position: relative;
-    }
-    .background-pattern {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url('data:image/svg+xml;utf8,<svg width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg"><circle cx="5" cy="5" r="1" fill="rgba(0, 0, 0, 0.1)"/></svg>');
-        background-repeat: repeat;
-        z-index: -1;
-    }
-    .main-container {
-        min-height: calc(100vh - 58px); /* Tinggi viewport dikurangi tinggi footer */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-    .card {
-      box-shadow: 0 8px 30px rgba(20, 20, 60, 0.08);
-      width: 360px;
-      z-index: 1;
-    }
-    .header {
-      background-color: #0b66ff;
-    }
-    .footer {
-      background: #f8f9fa;
-      color: #6c757d;
-      flex-shrink: 0; /* Mencegah footer menyusut */
-      padding: 15px; /* Tetapkan padding footer untuk menghitung tinggi yang akurat */
-    }
-    
-    /* --- Custom Styles for Graduation Cap Icon & Animation --- */
-    .icon-circle {
-      width: 70px;
-      height: 70px;
-      background-color: #0d6efd;
-      border-radius: 50%;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      animation: pulse 2s infinite ease-in-out;
-    }
-    .icon-circle i {
-      color: white;
-      font-size: 2.5rem;
-    }
-    @keyframes pulse {
-      0% { transform: scale(1); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); }
-      50% { transform: scale(1.05); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); }
-      100% { transform: scale(1); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); }
-    }
+    body{font-family:system-ui,Segoe UI,Roboto,Arial;margin:0;display:flex;min-height:100vh;align-items:center;justify-content:center;background:linear-gradient(120deg,#e6f0ff,#fff)}
+    .card{background:white;padding:28px;border-radius:12px;box-shadow:0 8px 30px rgba(20,20,60,0.08);width:360px}
+    h1{margin-top:0;font-size:20px}
+    label,select{display:block;margin-top:12px;font-size:14px}
+    input,select{width:100%;padding:10px;margin-top:6px;border-radius:8px;border:1px solid #d0d7e6;box-sizing:border-box;}
+    .btn{display:inline-block;margin-top:18px;padding:10px 14px;border-radius:10px;background:#0b66ff;color:white;border:none;width:100%;font-weight:600;cursor:pointer}
   </style>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
 </head>
-<body class="d-flex flex-column">
-  <div class="background-pattern"></div>
-  
-  <div class="header text-center text-white py-4 w-100 d-flex flex-column align-items-center">
-    <img src="https://via.placeholder.com/50/ffffff/000000?text=LOGO" alt="Logo" class="rounded-circle mb-2">
-    <h2 class="fs-5 fw-bold mb-0">PUSMENDIK</h2>
-    <p class="fs-6 mb-0">APLIKASI ANBK - Simulasi TKA</p>
-  </div>
-
-  <div class="main-container flex-grow-1 d-flex flex-column align-items-center justify-content-center w-100">
-    <div class="card p-4 rounded-3 mt-4 mb-4">
-      <div class="text-center mb-4">
-        <div class="icon-circle d-flex align-items-center justify-content-center mx-auto">
-          <i class="fas fa-graduation-cap"></i>
-        </div>
-      </div>
-
-      <h1 class="h5 fw-bold text-center mb-3">Ujian TKA - Login Siswa</h1>
-      <p class="text-center text-muted">Masukkan data Anda, lalu klik <strong>Mulai Ujian</strong>.</p>
-      
-      <div class="mb-3">
-        <label for="nama" class="form-label">Nama Siswa</label>
-        <input id="nama" name="nama" type="text" class="form-control" placeholder="Nama lengkap" required>
-      </div>
-      
-      <div class="mb-3">
-        <label for="no_absen" class="form-label">NISN</label>
-        <input id="no_absen" name="no_absen" type="number" maxlength="10" class="form-control" placeholder="Contoh: 12345678" required>
-      </div>
-      
-      <div class="mb-3">
-        <label for="kelas" class="form-label">Kelas</label>
-        <select name="kelas" id="kelas" class="form-select" required>
-            <option value="">-- Pilih Kelas --</option>
-            <option value="X IPA 1">X IPA 1</option>
-            <option value="X IPA 2">X IPA 2</option>
-            <option value="XI IPA 1">XI IPA 1</option>
-            <option value="XI IPA 2">XI IPA 2</option>
-            <option value="XII IPA 1">XII IPA 1</option>
-        </select>
-      </div>
-
-      <div class="mb-3">
-        <label for="mata_pelajaran" class="form-label">Mata Pelajaran</label>
-        <select name="mata_pelajaran" id="mata_pelajaran" class="form-select" required>
-            <option value="">-- Pilih Mata Pelajaran --</option>
-            <option value="Bahasa Indonesia">Bahasa Indonesia</option>
-            <option value="Matematika">Matematika</option>
-            <option value="IPA">IPA</option>
-        </select>
-      </div>
-
-      <button id="mulai" class="btn btn-primary w-100 fw-bold">Mulai Ujian</button>
+<body>
+  <div class="card">
+    <div style="text-align: center;">
+    <h1>Ujian TKA - Login Siswa</h1>
+    <p>Masukkan data Anda, lalu klik <strong>Mulai Ujian</strong>.</p>
     </div>
-  </div>
+    
+    <label for="nama">
+      <span style="font-size: 13px; color: Dodgerblue;">
+      <i class="fa-solid fa-user"></i>
+      </span>Nama Lengkap</label>
+    <input id="nama" name="nama" type="text" placeholder="Nama lengkap" required>
+    
+    <label for="no_absen">
+      <span style="font-size: 13px; color: Dodgerblue;">
+      <i class="fa-solid fa-address-card"></i>
+      </span> NISN</label>
+    
+    <input id="no_absen" name="no_absen" type="number" maxlength="10" placeholder="Contoh: 12345678" required>
+    
+    <label for="kelas"><span style="font-size: 13px; color: Dodgerblue;">
+      <i class="fa-solid fa-house-user"></i>
+      </span> Kelas</label>
+    <select name="kelas" id="kelas" required>
+        <option value="" style="color: grey;">-- Pilih Kelas --</option>
+        <option value="XII A1 1">XII A1 1</option> 
+        <option value="XII A1 2">XII A1 2</option>
+        <option value="XII A1 3">XII A1 3</option>
+        <option value="XII A2 1">XII A2 1</option>
+        <option value="XII A2 2">XII A2 2</option>
+        <option value="XII A2 3">XII A2 3</option>
+        <option value="XII A3 1">XII A3 1</option>
+        <option value="XII A3 2">XII A3 2</option>
+    </select>
 
-  <div class="footer text-center py-3 w-100">
-      <small>Copyright © 2025 Pusmendik. All rights reserved.</small>
-  </div>
+    <label for="mata_pelajaran"><span style="font-size: 13px; color: Dodgerblue;">
+      <i class="fa-solid fa-book"></i>
+      </span> Mata Pelajaran</label>
+    <select class="mapel" name="mata_pelajaran" id="mata_pelajaran" placeholder="Pilih Mata Pelajaran" required>
+        <option value="" style="color: grey;">-- Mata Pelajaran --</option>
+        <option value="Bahasa Indonesia (Wajib)">Bahasa Indonesia (Wajib)</option>
+        <option value="Matematika (Wajib)">Matematika (Wajib)</option>
+        <option value="IPA (Wajib)">IPA (Wajib)</option>
+              <option style="color: grey;" disabled>──────────────────────────────</option>
+        <option value="">Matematika Lanjutan (IPA)</option>
+        <option value="">Fisika (IPA)</option>
+        <option value="">Kimia (IPA)</option>
+        <option value="">Biologi (IPA)</option>
+        <option value="">B. Inggris Lanjutan (IPA)</option>
+              <option style="color: grey;" disabled>──────────────────────────────</option>
+        <option value="">Sosiologi (IPS)</option>
+        <option value="">Geografi (IPS)</option>
+        <option value="">Ekonomi (IPS)</option>
+        <option value="">Sejarah (IPS)</option>
+        <option value="">B. Inggris Lanjutan (IPS)</option>
+    </select>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <button id="mulai" class="btn">Mulai Ujian</button>
+  </div>
 
   <script>
     document.getElementById('mulai').addEventListener('click', ()=>{
       const nama = document.getElementById('nama').value.trim();
       const no = document.getElementById('no_absen').value.trim();
-      const kelas = document.getElementById('kelas').value;
-      const mapel = document.getElementById('mata_pelajaran').value;
+      const kelas = document.getElementById('kelas').value; // Ambil nilai kelas
+      const mapel = document.getElementById('mata_pelajaran').value; // Ambil nilai mapel
 
       if(!nama || !no || !kelas || !mapel){
         alert('Mohon lengkapi semua data terlebih dahulu (Nama, NISN, Kelas, dan Mata Pelajaran).');
         return;
       }
       
+      // Simpan semua data di sessionStorage
       sessionStorage.setItem('sim_nama', nama);
       sessionStorage.setItem('sim_no', no);
-      sessionStorage.setItem('sim_kelas', kelas);
-      sessionStorage.setItem('sim_mapel', mapel);
+      sessionStorage.setItem('sim_kelas', kelas); // Simpan kelas
+      sessionStorage.setItem('sim_mapel', mapel); // Simpan mapel
 
       window.location = 'exam.php?soal=1';
     });
