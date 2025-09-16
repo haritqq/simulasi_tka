@@ -7,9 +7,10 @@
   <title>Login - Simulasi TKA</title>
   <style>
     body{font-family:system-ui,Segoe UI,Roboto,Arial;margin:0;display:flex;min-height:100vh;align-items:center;justify-content:center;background:linear-gradient(120deg,#e6f0ff,#fff)}
-    .card{background:white;padding:28px;border-radius:12px;box-shadow:0 8px 30px rgba(20,20,60,0.08);width:360px}
+    .card{background:white;padding:28px;border-radius:12px;box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;width:360px}
     h1{margin-top:0;font-size:20px}
-    label,select{display:block;margin-top:12px;font-size:14px}
+    p{margin-top:5px;}
+    label{display:block;margin-top:12px;font-size:13px;font-weight:650;color:#333}
     input,select{width:100%;padding:10px;margin-top:6px;border-radius:8px;border:1px solid #d0d7e6;box-sizing:border-box;}
     .btn{display:inline-block;margin-top:18px;padding:10px 14px;border-radius:10px;background:#0b66ff;color:white;border:none;width:100%;font-weight:600;cursor:pointer}
   </style>
@@ -18,7 +19,7 @@
 <body>
   <div class="card">
     <div style="text-align: center;">
-    <h1>Ujian TKA - Login Siswa</h1>
+    <h1>Tes Kemampuan Akademik</h1>
     <p>Masukkan data Anda, lalu klik <strong>Mulai Ujian</strong>.</p>
     </div>
     
