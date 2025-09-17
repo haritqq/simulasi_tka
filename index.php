@@ -11,6 +11,8 @@
     h1{margin-top:0;font-size:20px;margin-bottom: 5px;}
     p{margin-top:5px;}
     label{display:block;margin-top:12px;font-size:13px;font-weight:650;color:#333}
+    .select{text-align: center;}
+    .select-head{font-weight: 700; text-align: center;}
     input,select{width:100%;padding:10px;margin-top:6px;border-radius:8px;border:1px solid #d0d7e6;box-sizing:border-box;}
     .btn{display:inline-block;margin-top:18px;padding:10px 14px;border-radius:10px;background:#0b66ff;color:white;border:none;width:100%;font-weight:600;cursor:pointer}
   </style>
@@ -50,7 +52,7 @@
       <i class="fa-solid fa-house-user"></i>
       </span> Kelas</label>
     <select name="kelas" id="kelas" required>
-        <option value="" style="color: grey;">-- Pilih Kelas --</option>
+        <option class="select" value="" style="color: grey;">Pilih Kelas</option>
         <option value="XII A1 1">XII A1 1</option> 
         <option value="XII A1 2">XII A1 2</option>
         <option value="XII A1 3">XII A1 3</option>
@@ -65,22 +67,26 @@
       <i class="fa-solid fa-book"></i>
       </span> Mata Pelajaran</label>
     <select class="mapel" name="mata_pelajaran" id="mata_pelajaran" placeholder="Pilih Mata Pelajaran" required>
-        <option value="" style="color: grey;">-- Mata Pelajaran --</option>
-        <option value="Bahasa Indonesia (Wajib)">Bahasa Indonesia (Wajib)</option>
-        <option value="Matematika (Wajib)">Matematika (Wajib)</option>
-        <option value="IPA (Wajib)">IPA (Wajib)</option>
-              <option style="color: grey;" disabled>──────────────────────────────</option>
-        <option value="">Matematika Lanjutan (IPA)</option>
-        <option value="">Fisika (IPA)</option>
-        <option value="">Kimia (IPA)</option>
-        <option value="">Biologi (IPA)</option>
-        <option value="">B. Inggris Lanjutan (IPA)</option>
-              <option style="color: grey;" disabled>──────────────────────────────</option>
-        <option value="">Sosiologi (IPS)</option>
-        <option value="">Geografi (IPS)</option>
-        <option value="">Ekonomi (IPS)</option>
-        <option value="">Sejarah (IPS)</option>
-        <option value="">B. Inggris Lanjutan (IPS)</option>
+        <option class="select" value="" style="color: grey; position: text-align: center;">Pilih Mata Pelajaran</option>
+
+        <option class="select-head" disabled>--- Mapel Pilihan WAJIB ---</option>
+            <option value="Bahasa Indonesia">Bahasa Indonesia (Wajib)</option>
+            <option value="Matematika">Matematika (Wajib)</option>
+            <option value="IPA">IPA (Wajib)</option>
+
+        <option class="select-head" disabled>--- Mapel Pilihan IPA ---</option>
+            <option value="">Matematika Lanjutan (IPA) - blm ada soal</option>
+            <option value="">Fisika (IPA) - blm ada soal</option>
+            <option value="">Kimia (IPA) - blm ada soal</option>
+            <option value="">Biologi (IPA) - blm ada soal</option>
+            <option value="">B. Inggris Lanjutan (IPA) - blm ada soal</option>
+
+        <option class="select-head" disabled>--- Mapel Pilihan IPS ---</option>
+            <option value="">Sosiologi (IPS) - blm ada soal</option>
+            <option value="">Geografi (IPS) - blm ada soal</option>
+            <option value="">Ekonomi (IPS) - blm ada soal</option>
+            <option value="">Sejarah (IPS) - blm ada soal</option>
+            <option value="">B. Inggris Lanjutan (IPS) - blm ada soal</option>
     </select>
 
     <button id="mulai" class="btn">Mulai Ujian</button>

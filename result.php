@@ -46,7 +46,7 @@
 
     // 1. Ambil data soal yang sudah disimpan dari sessionStorage
     const QUESTIONS = JSON.parse(sessionStorage.getItem('sim_questions') || '[]');
-    const totalQuestions = QUESTIONS.length > 0 ? QUESTIONS.length : 10; // Default 10 jika gagal
+    const totalQuestions = QUESTIONS.length > 0 ? QUESTIONS.length : 20; // Default 20 jika gagal
 
     // 2. Ambil parameter lain dari URL dan sessionStorage
     const params = new URLSearchParams(location.search);
