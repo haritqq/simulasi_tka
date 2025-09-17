@@ -14,20 +14,10 @@
     input,select{width:100%;padding:10px;margin-top:6px;border-radius:8px;border:1px solid #d0d7e6;box-sizing:border-box;}
     .btn{display:inline-block;margin-top:18px;padding:10px 14px;border-radius:10px;background:#0b66ff;color:white;border:none;width:100%;font-weight:600;cursor:pointer}
   </style>
-  <link rel="stylesheet" href="vendor/header-footer.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
 </head>
-
 <body>
   <div class="card">
-    <div class="icon-wrapper">
-      <div class="icon">
-        <span style="font-size: 30px; color: white ;">
-          <i class="fa-solid fa-graduation-cap"></i>
-        </span>
-      </div>
-    </div>
-
     <div style="text-align: center;">
     <h1>Tes Kemampuan Akademik</h1>
     <p>Masukkan data Anda, lalu klik <strong>Mulai Ujian</strong>.</p>
@@ -107,10 +97,5 @@
       window.location = 'exam.php?soal=1';
     });
   </script>
-
-    <!-- Footer -->
-  <div class="footer">
-    Copyright © 2025 SMA Negeri 8 Banda Aceh. All rights reserved.
-  </div>
 </body>
 </html>
