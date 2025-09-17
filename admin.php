@@ -86,7 +86,7 @@ $rows = $stmt->fetchAll();
       <div style="overflow:auto">
         <table class="table">
           <thead>
-            <tr><th>No</th><th>Mata Pelajaran</th><th>Kelas</th><th>Nama</th><th>No. Absen</th><th>Nilai</th><th>Waktu Kirim</th><th>Jawaban (preview)</th></tr>
+            <tr><th>No</th><th>Mata Pelajaran</th><th>Kelas</th><th>Nama</th><th>NISN</th><th>Nilai</th><th>Waktu Kirim</th><th>Jawaban (preview)</th></tr>
           </thead>
           <tbody>
             <?php foreach($rows as $i => $r): ?>

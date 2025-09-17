@@ -139,7 +139,7 @@
     
     <div class="actions">
       <!-- <button id="exportPdf" class="btn primary">Export PDF</button> -->
-      <button id="back" class="btn secondary" onclick="location.href='index.php'">Kembali ke Halaman Login</button>
+      <button id="back" class="btn secondary" onclick="location.href='index.php'">Kembali ke Beranda</button>
     </div>
   </div>
 

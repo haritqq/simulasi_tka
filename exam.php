@@ -43,10 +43,10 @@
     }
 
     switch(mapel) {
-        case 'Matematika':
+        case 'Matematika (Wajib)':
             questionFile = 'questions_mtk.js';
             break;
-        case 'IPA':
+        case 'IPA (Wajib)':
             questionFile = 'questions_ipa.js';
             break;
         default:
