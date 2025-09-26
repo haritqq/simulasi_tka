@@ -14,8 +14,8 @@
         <div class="timer">Sisa Waktu: <span id="countdown">60:00</span></div>
       </div>
       <div class="card soal-card">
-        <div id="soal-text" class="soal-text">Memuat soal...</div>
-        <div id="options" class="options"></div>
+    <div id="stimulus-container" class="stimulus"></div> <div id="soal-text" class="soal-text"></div>
+    <div id="options" class="options"></div>
         <div class="nav-buttons">
           <button id="prevBtn" class="btn secondary">Sebelumnya</button>
           <button id="nextBtn" class="btn primary">Selanjutnya</button>

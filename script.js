@@ -1,10 +1,9 @@
-// FILE: script.js (SUDAH DIPERBAIKI)
+// FILE: script.js (FINAL DENGAN FUNGSI STIMULUS)
 
-// Semua logika ujian sekarang ada di dalam fungsi ini
 function startExam() {
   const TOTAL_MINUTES = 60;
-  let timeLeft = TOTAL_MINUTES * 60; // detik
-  let currentIndex = 0; // Mulai dari soal pertama
+  let timeLeft = TOTAL_MINUTES * 60;
+  let currentIndex = 0;
   const answers = JSON.parse(sessionStorage.getItem('sim_answers') || '[]');
 
   const nama = sessionStorage.getItem('sim_nama');
@@ -16,6 +15,8 @@ function startExam() {
   }
 
   const countdownEl = document.getElementById('countdown');
+  // === AMBIL ELEMENT BARU UNTUK STIMULUS ===
+  const stimulusContainer = document.getElementById('stimulus-container'); 
   const soalText = document.getElementById('soal-text');
   const optionsEl = document.getElementById('options');
   const prevBtn = document.getElementById('prevBtn');
@@ -28,6 +29,9 @@ function startExam() {
     QUESTIONS.forEach((q, i) => {
       const b = document.createElement('div');
       b.className = 'nav-item' + (answers[i] !== undefined ? ' done' : '');
+      if (i === currentIndex) {
+          b.classList.add('current'); // Tandai soal yang aktif
+      }
       b.textContent = (i + 1);
       b.addEventListener('click', () => {
         currentIndex = i;
@@ -37,16 +41,44 @@ function startExam() {
     });
   }
 
+  // =======================================================================
+  // === FUNGSI INI YANG DIUBAH SECARA SIGNIFIKAN ===
   function renderQuestion() {
-    // Pastikan QUESTIONS ada sebelum digunakan
     if (typeof QUESTIONS === 'undefined' || !QUESTIONS[currentIndex]) {
         soalText.textContent = "Gagal memuat soal. Silakan coba muat ulang halaman.";
         return;
     }
       
     const q = QUESTIONS[currentIndex];
-    soalText.textContent = q.text;
+
+    // 1. KOSONGKAN AREA DARI SOAL SEBELUMNYA
+    stimulusContainer.innerHTML = '';
+    soalText.textContent = '';
     optionsEl.innerHTML = '';
+
+    // 2. LOGIKA BARU: PERIKSA DAN TAMPILKAN STIMULUS
+    if (q.stimulus && q.stimulus.length > 0) {
+        q.stimulus.forEach(item => {
+            if (item.type === 'text') {
+                const p = document.createElement('p');
+                p.className = 'stimulus-text';
+                // Menggunakan innerHTML agar tag <br> berfungsi untuk baris baru
+                p.innerHTML = item.content.replace(/\n/g, '<br>'); 
+                stimulusContainer.appendChild(p);
+            } else if (item.type === 'image') {
+                const img = document.createElement('img');
+                img.src = item.url;
+                img.alt = 'Gambar Soal';
+                img.className = 'stimulus-image';
+                stimulusContainer.appendChild(img);
+            }
+        });
+    }
+    
+    // 3. Tampilkan teks soal (seperti sebelumnya)
+    soalText.textContent = q.text;
+
+    // 4. Tampilkan pilihan (seperti sebelumnya)
     q.choices.forEach((c, idx) => {
       const o = document.createElement('div');
       o.className = 'option' + (answers[currentIndex] === idx ? ' selected' : '');
@@ -54,8 +86,8 @@ function startExam() {
       o.addEventListener('click', () => {
         answers[currentIndex] = idx;
         sessionStorage.setItem('sim_answers', JSON.stringify(answers));
-        renderQuestion();
-        renderNav();
+        renderQuestion(); // Render ulang untuk menunjukkan pilihan
+        renderNav(); // Update navigasi
       });
       optionsEl.appendChild(o);
     });
@@ -63,7 +95,12 @@ function startExam() {
     prevBtn.style.display = currentIndex === 0 ? 'none' : 'inline-block';
     nextBtn.style.display = currentIndex === QUESTIONS.length - 1 ? 'none' : 'inline-block';
     finishBtn.style.display = 'inline-block';
+
+    renderNav(); // Panggil renderNav di akhir untuk update 'current'
   }
+  // === AKHIR DARI FUNGSI YANG DIUBAH ===
+  // =======================================================================
+
 
   prevBtn.addEventListener('click', () => {
     if (currentIndex > 0) {
@@ -94,7 +131,7 @@ function startExam() {
 
   const savedTime = sessionStorage.getItem('sim_timeleft');
   if (savedTime) timeLeft = parseInt(savedTime, 10);
-  setInterval(() => {
+  const timerInterval = setInterval(() => {
     tick();
     sessionStorage.setItem('sim_timeleft', timeLeft);
   }, 1000);
@@ -104,17 +141,15 @@ function startExam() {
     for (let i = 0; i < QUESTIONS.length; i++) {
       if (answers[i] !== undefined && answers[i] === QUESTIONS[i].answer) score++;
     }
-    // Mengembalikan skor dalam format persentase (opsional)
-    // return (score / QUESTIONS.length) * 100;
-    return score; // Mengembalikan jumlah jawaban benar
+    return score;
   }
 
   function submitExam(isAuto = false) {
+    clearInterval(timerInterval); // Hentikan timer saat submit
     const kelas = sessionStorage.getItem('sim_kelas');
     const mapel = sessionStorage.getItem('sim_mapel');
 
     const score = computeScore();
-    // BARIS TAMBAHAN: Simpan data soal untuk halaman hasil
     sessionStorage.setItem('sim_questions', JSON.stringify(QUESTIONS));
     const payload = {
       nama: nama,
@@ -130,9 +165,7 @@ function startExam() {
 
     fetch('save_score.php', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
+      headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(payload)
     }).then(r => r.json()).then(data => {
       sessionStorage.clear();
@@ -145,6 +178,5 @@ function startExam() {
   }
 
   // Inisialisasi render
-  renderNav();
   renderQuestion();
 }
