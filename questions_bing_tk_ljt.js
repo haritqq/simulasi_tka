@@ -1,4 +1,4 @@
-// Daftar 20 soal pilihan ganda Bahasa Inggris lanjutan
+// Daftar 20 soal pilihan ganda Bahasa Inggris lanjutan FIX
 
 const QUESTIONS = [
   {

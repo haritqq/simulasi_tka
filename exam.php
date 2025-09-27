@@ -49,6 +49,9 @@
         case 'IPA (Wajib)':
             questionFile = 'questions_ipa.js';
             break;
+        case 'Bahasa Inggris (Wajib)':
+            questionFile = 'questions_bing.js';
+            break;
         case 'Geografi (IPS)':
             questionFile = 'questions_geo.js';
             break;
@@ -65,7 +68,7 @@
             questionFile = 'questions_pjok.js';
             break;
         default:
-            questionFile = 'questions.js';
+            questionFile = 'questions_bind.js';
             break;
     }
 

@@ -1,4 +1,5 @@
-// Daftar 20 soal pilihan ganda Bahasa Indonesia
+// Daftar 20 soal pilihan ganda Bahasa Indonesia FIX
+// Nomor 20 perbaikan kunci jawaban menjadi D:3
 
 const QUESTIONS = [
   {
@@ -11,7 +12,7 @@ const QUESTIONS = [
     ],
     text: 'Jika dilihat dari isinya, kutipan tersebut dalam struktur teks prosedur kompleks termasuk bagian...',
     choices: ['Judul', 'Tujuan', 'Bahan-bahan', 'Syarat', 'Langkah-langkah'],
-    answer: 4
+    answer: 1
   },
   {
     id: 2,
@@ -129,7 +130,7 @@ const QUESTIONS = [
       'Kukuslah adonan kue lapis dengan api yang tidak terlalu besar agar matang dengan merata.',
       'Menggoreng tempe menggunakan minyak'
     ],
-    answer: 3
+    answer: 1
   },
   {
     id: 11,
@@ -141,7 +142,7 @@ const QUESTIONS = [
     ],
     text: 'Penggalan teks eksplanasi di atas merupakan bagian struktur…',
     choices: ['Pengertian', 'Penjelasan', 'Judul', 'Interprestasi', 'Sebab-akibat'],
-    answer: 3
+    answer: 1
   },
   {
     id: 12,
@@ -178,7 +179,7 @@ const QUESTIONS = [
       'Bakso termasuk makanan tidak tahan lama',
       'Manfaat bahan kimia'
     ],
-    answer: 0
+    answer: 2
   },
   {
     id: 15,
@@ -226,7 +227,7 @@ const QUESTIONS = [
     ],
     text: 'Kalimat "sampah plastik sulit terurai di tanah". Pada paragraf tersebut merupakan…',
     choices: ['Ide pokok', 'Gagasan utama', 'Kalimat utama', 'Kalimat penjelas', 'Ide pokok dan kalimat penjelas'],
-    answer: 2
+    answer: 3
   },
   {
     id: 18,

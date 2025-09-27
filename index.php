@@ -72,7 +72,7 @@
         <option class="select-head" disabled>--- Mapel Pilihan WAJIB ---</option>
             <option value="Bahasa Indonesia (Wajib)">Bahasa Indonesia (Wajib)</option>
             <option value="Matematika (Wajib)">Matematika (Wajib)</option>
-            <option value="IPA (Wajib)">IPA (Wajib)</option>
+            <option value="Bahasa Inggris (Wajib)">Bahasa Inggris (Wajib)</option>
 
         <option class="select-head" disabled>--- Mapel Pilihan IPA ---</option>
             <option value="">Matematika Lanjutan (IPA) - blm ada soal</option>
