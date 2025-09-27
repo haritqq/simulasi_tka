@@ -79,14 +79,14 @@
             <option value="">Fisika (IPA) - blm ada soal</option>
             <option value="">Kimia (IPA) - blm ada soal</option>
             <option value="">Biologi (IPA) - blm ada soal</option>
-            <option value="">B. Inggris Lanjutan (IPA) - blm ada soal</option>
+            <option value="Bahasa Inggris Lanjutan (IPA)">Bahasa Inggris Lanjutan (IPA)</option>
 
         <option class="select-head" disabled>--- Mapel Pilihan IPS ---</option>
-            <option value="">Sosiologi (IPS) - blm ada soal</option>
-            <option value="">Geografi (IPS) - blm ada soal</option>
+            <option value="Sosiologi (IPS)">Sosiologi (IPS)</option>
+            <option value="Geografi (IPS)">Geografi (IPS)</option>
             <option value="">Ekonomi (IPS) - blm ada soal</option>
             <option value="">Sejarah (IPS) - blm ada soal</option>
-            <option value="">B. Inggris Lanjutan (IPS) - blm ada soal</option>
+            <option value="Bahasa Inggris Lanjutan (IPS)">Bahasa Inggris Lanjutan (IPS)</option>
     </select>
 
     <button id="mulai" class="btn">Mulai Ujian</button>

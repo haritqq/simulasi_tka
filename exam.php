@@ -49,6 +49,21 @@
         case 'IPA (Wajib)':
             questionFile = 'questions_ipa.js';
             break;
+        case 'Geografi (IPS)':
+            questionFile = 'questions_geo.js';
+            break;
+        case 'Sosiologi (IPS)':
+            questionFile = 'questions_sos.js';
+            break;
+        case 'Bahasa Inggris Lanjutan (IPA)':
+            questionFile = 'questions_bing_tk_ljt.js';
+            break;
+        case 'Bahasa Inggris Lanjutan (IPS)':
+            questionFile = 'questions_bing_tk_ljt.js';
+            break;
+        case 'PJOK':
+            questionFile = 'questions_pjok.js';
+            break;
         default:
             questionFile = 'questions.js';
             break;

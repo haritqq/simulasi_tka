@@ -1,5 +1,4 @@
 // Daftar 20 soal pilihan ganda Bahasa Indonesia
-// dengan struktur baru yang mendukung teks bacaan dan gambar
 
 const QUESTIONS = [
   {
