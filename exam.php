@@ -52,6 +52,9 @@
         case 'Bahasa Inggris (Wajib)':
             questionFile = 'questions_bing.js';
             break;
+        case 'Ekonomi (IPS)':
+            questionFile = 'questions_eko.js';
+            break;
         case 'Geografi (IPS)':
             questionFile = 'questions_geo.js';
             break;

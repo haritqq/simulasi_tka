@@ -84,7 +84,7 @@
         <option class="select-head" disabled>--- Mapel Pilihan IPS ---</option>
             <option value="Sosiologi (IPS)">Sosiologi (IPS)</option>
             <option value="Geografi (IPS)">Geografi (IPS)</option>
-            <option value="">Ekonomi (IPS) - blm ada soal</option>
+            <option value="Ekonomi (IPS)">Ekonomi (IPS)</option>
             <option value="">Sejarah (IPS) - blm ada soal</option>
             <option value="Bahasa Inggris Lanjutan (IPS)">Bahasa Inggris Lanjutan (IPS)</option>
     </select>

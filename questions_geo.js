@@ -1,4 +1,4 @@
-// Daftar 20 soal pilihan ganda Geografi
+// Daftar 20 soal pilihan ganda Geografi FIX
 
 const QUESTIONS = [
   {
@@ -13,7 +13,7 @@ const QUESTIONS = [
     stimulus: [
       {
         type: 'text',
-        content: '"Rencana pemindahan ibukota Negara Indonesia masih terus dikaji, walaupun lokasi sudah ditentukan tatapi masih banyak aspek yang perlu dipertimbangkan seperti: aspek politik, ekonomi, social dan budaya, serta dampaknya bagi masyarakat secara umum."'
+        content: 'Rencana pemindahan ibukota Negara Indonesia masih terus dikaji, walaupun lokasi sudah ditentukan tatapi masih banyak aspek yang perlu dipertimbangkan seperti: aspek politik, ekonomi, social dan budaya, serta dampaknya bagi masyarakat secara umum.'
       }
     ],
     text: 'Pendekatan geografi yang digunakan untuk mengkaji fenomena tersebut adalah pendekatan …',
@@ -34,12 +34,12 @@ const QUESTIONS = [
   },
   {
     id: 4,
-    stimulus: [
-      {
-        type: 'text',
-        content: '"Hewan kangguru banyak terdapat di wilayah Indonesia bagian timur, sedangkan orang utan banyak terdapat di wilayah Indonesia bagian barat. Fenomena tersebut dapat dikaji menggunakan prinsip …."'
-      }
-    ],
+    // stimulus: [
+    //   {
+    //     type: 'text',
+    //     content: ''
+    //   }
+    // ],
     text: 'Hewan kangguru banyak terdapat di wilayah Indonesia bagian timur, sedangkan orang utan banyak terdapat di wilayah Indonesia bagian barat. [cite_start]Fenomena tersebut dapat dikaji menggunakan prinsip ….',
     choices: ['Deskripsi', 'Distribusi', 'Interelasi', 'Korologi', 'Interaksi'],
     answer: 1
@@ -47,7 +47,7 @@ const QUESTIONS = [
   {
     id: 5,
     // stimulus: [],
-    text: '"Jarak indonesia dengan thailand pada peta yang berskala 1: 2.000.000 adalah 4cm, jarak sebenarnya dilapanganadalah ...." ',
+    text: 'Jarak indonesia dengan thailand pada peta yang berskala 1: 2.000.000 adalah 4cm, jarak sebenarnya dilapangan adalah .... ',
     choices: ['90 km', '84 km', '80 km', '85 km', '82 km'],
     answer: 2
   },
@@ -75,7 +75,7 @@ const QUESTIONS = [
     stimulus: [
       {
         type: 'text',
-        content: 'Perhatikan pernyataan berikut! Penentuan jalur transportasi yang efektif, Analisis rawan macet serta bahaya kemacetan, Memantau tingkat kemiringan jalur transportasi, Memantau jaringan jalan.'
+        content: 'Perhatikan pernyataan berikut! <br> 1) Penentuan jalur transportasi yang efektif, <br> 2) Analisis rawan macet serta bahaya kemacetan, <br> 3) Memantau tingkat kemiringan jalur transportasi, <br> 4) Memantau jaringan jalan.'
       }
     ],
     text: 'Berdasarkan pernyataan diatas yang termasuk sebagai manfaat SIG dibidang transportasi adalah .... ',
@@ -85,7 +85,7 @@ const QUESTIONS = [
   {
     id: 9,
     // stimulus: [],
-    text: 'Kota Jayapura memiliki suhu rata-rata 25˚C sedangkan kota Wonosobo memiliki ketinggian rata-rata 1.700 mdpl. [cite_start]Berapakah suhu rata-rata kota Wonosobo jika dihitung menggunakan rumus gradien thermis? ',
+    text: 'Kota Jayapura memiliki suhu rata-rata 25˚C sedangkan kota Wonosobo memiliki ketinggian rata-rata 1.700 mdpl. Berapakah suhu rata-rata kota Wonosobo jika dihitung menggunakan rumus gradien thermis? ',
     choices: ['14,8 ˚C', '12,8 ˚C', '10 ˚C', '9,8 ˚C', '15 ˚C'],
     answer: 0
   },
@@ -106,14 +106,14 @@ const QUESTIONS = [
     ],
     text: 'Prinsip geografi yang erat kaitannya dengan kasus tersebut adalah .... ',
     choices: ['Prinsip distribusi', 'Prinsip interelasi', 'Prinsip korologi', 'Prinsip deskripsi', 'Prinsip integrasi'],
-    answer: 1
+    answer: 2
   },
   {
     id: 12,
     stimulus: [
       {
         type: 'text',
-        content: 'Ciri-ciri planet: (1) Merupakan planet terbesar, (2) Memiliki cincin, (3) Memiliki satelit terbanyak, (4) Revolusi 30 tahun, (5) Rotasi 10 jam.'
+        content: 'Ciri-ciri planet: <br>(1) Merupakan planet terbesar, <br>(2) Memiliki cincin, <br>(3) Memiliki satelit terbanyak, <br>(4) Revolusi 30 tahun, <br>(5) Rotasi 10 jam.'
       }
     ],
     text: 'Ciri-ciri planet Jupiter adalah ….',
@@ -125,19 +125,19 @@ const QUESTIONS = [
     stimulus: [
       {
         type: 'image',
-        url: 'images/layers_of_atmosphere.png'
+        url: 'images/soal-geografi-13.png'
       }
     ],
     text: 'Tanda ”y” pada gambar lapisan atmosfer diatas mempunyai fungsi sebagai .... ',
     choices: ['Melindungi dari sinar UV', 'Membakar batu-batu angkasa yang masuk ke atmosfer', 'Memantulkan gelombang radio', 'Tempat terjadinya fenomena cuaca', 'Tempat terjadinya hujan'],
-    answer: 2
+    answer: 0
   },
   {
     id: 14,
     stimulus: [
       {
         type: 'text',
-        content: 'Perhatikan pernyataan berikut! Terjadinya Perbedaan lama siang dan malam, Terjadinya Perubahan musim, Terjadinya pergantian siang dan malam, Terjadinya perubahan arah angin, Terjadinya gerak semu tahunan matahari.'
+        content: 'Perhatikan pernyataan berikut! <br> (1) Terjadinya Perbedaan lama siang dan malam, <br> (2) Terjadinya Perubahan musim, Terjadinya pergantian siang dan malam, <br> (3) Terjadinya perubahan arah angin, <br> (4) Terjadinya gerak semu tahunan matahari.'
       }
     ],
     text: 'Dari pernyataan diatas yang merupakan akibat dari revolusi matahari adalah .... ',
@@ -147,30 +147,30 @@ const QUESTIONS = [
   {
     id: 15,
     // stimulus: [],
-    text: 'Alam semesta tidak ada awalnya dan tidak akan berakhir. Alam semesta selalu terlihat tetap dan terus mengembang seperti sekarang. [cite_start]Menurut penjelasan tersebut merupakan isi dari teori .... ',
+    text: 'Alam semesta tidak ada awalnya dan tidak akan berakhir. Alam semesta selalu terlihat tetap dan terus mengembang seperti sekarang. Menurut penjelasan tersebut merupakan isi dari teori .... ',
     choices: ['Big bang', 'Keadaan tetap', 'Planetesimal', 'Kabut', 'Nebula'],
     answer: 1
   },
   {
     id: 16,
     // stimulus: [],
-    text: 'Citra penginderaan jauh dapat menjadi bahan pengambilan kebijiakan setelah bencana. Interpretasi citra mampu menunjukkan kondisi bangunan yang rusak akibat bencana. [cite_start]Salah satu contoh kebijakan berdasarkan analisis tersebut adalah .... ',
+    text: 'Citra penginderaan jauh dapat menjadi bahan pengambilan kebijiakan setelah bencana. Interpretasi citra mampu menunjukkan kondisi bangunan yang rusak akibat bencana. Salah satu contoh kebijakan berdasarkan analisis tersebut adalah .... ',
     choices: ['Pengosongan lahan kritis', 'Penganggaran biaya rekonstruksi', 'Pemetaan kawasan rawan bencana', 'Pembangunan barak pengungsian permanen', 'Penghitungan jumlah korban akibat bencana'],
     answer: 1
   },
   {
     id: 17,
     // stimulus: [],
-    text: 'Sistem Informasi Geografi (SIG) mampu menganalisis data dari berbagai sudut pandang. [cite_start]Karakteristik SIG tersebut merupakan bukti bahwa .... ',
+    text: 'Sistem Informasi Geografi (SIG) mampu menganalisis data dari berbagai sudut pandang. Karakteristik SIG tersebut merupakan bukti bahwa .... ',
     choices: ['Data dari metode SIG dapat direkayasa sesuai tujuan', 'SIG dijalankan orang-orang yang kompeten di bidangnya', 'Software SIG selalu mengalami perubahan', 'Sumber data SIG berasal dari perekaman kamera terbaik', 'SIG berupa data digital dan temporal'],
-    answer: 4
+    answer: 0
   },
   {
     id: 18,
     stimulus: [
       {
         type: 'text',
-        content: '1). Ketinggian 700-1500, 2). Suhu berkisar antara 22 – 17 derajat C, 3). Jenis vegetasi budidaya kopi, kakao, teh.'
+        content: 'Perhatikan ciri wilayah berikut! <br><br> 1). Ketinggian 700-1500, <br>2). Suhu berkisar antara 22 – 17 derajat C, <br>3). Jenis vegetasi budidaya kopi, kakao, teh.'
       }
     ],
     text: 'Menurut klasifikasi Junghun, wilayah di atas masuk tipe iklim .... ',
@@ -182,19 +182,19 @@ const QUESTIONS = [
     stimulus: [
       {
         type: 'image',
-        url: 'images/siklus_hidrologi.png'
+        url: 'images/soal-geografi-19.jpg'
       }
     ],
     text: 'Proses presipitasi dan infiltrasi pada gambar siklus hidrologi ditunjukkan oleh huruf .... ',
     choices: ['A dan B', 'B dan C', 'B dan D', 'C dan E', 'A dan D'],
-    answer: 'UNABLE TO DETERMINE, IMAGE IS MISSING'
+    answer: 3
   },
   {
     id: 20,
     stimulus: [
       {
         type: 'image',
-        url: 'images/lipatan.png'
+        url: 'images/soal-geografi-20.jpg'
       }
     ],
     text: 'Bentuk muka bumi seperti gambar merupakan bentukan yang disebabkan oleh gerakan lempeng .... ',
