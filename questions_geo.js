@@ -40,7 +40,7 @@ const QUESTIONS = [
     //     content: ''
     //   }
     // ],
-    text: 'Hewan kangguru banyak terdapat di wilayah Indonesia bagian timur, sedangkan orang utan banyak terdapat di wilayah Indonesia bagian barat. [cite_start]Fenomena tersebut dapat dikaji menggunakan prinsip ….',
+    text: 'Hewan kangguru banyak terdapat di wilayah Indonesia bagian timur, sedangkan orang utan banyak terdapat di wilayah Indonesia bagian barat. Fenomena tersebut dapat dikaji menggunakan prinsip ….',
     choices: ['Deskripsi', 'Distribusi', 'Interelasi', 'Korologi', 'Interaksi'],
     answer: 1
   },

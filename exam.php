@@ -52,6 +52,9 @@
         case 'Bahasa Inggris (Wajib)':
             questionFile = 'questions_bing.js';
             break;
+        case 'Kimia (IPA)':
+            questionFile = 'questions_kma.js';
+            break;
         case 'Ekonomi (IPS)':
             questionFile = 'questions_eko.js';
             break;
@@ -60,6 +63,9 @@
             break;
         case 'Sosiologi (IPS)':
             questionFile = 'questions_sos.js';
+            break;
+        case 'Sejarah (IPS)':
+            questionFile = 'questions_sjrah.js';
             break;
         case 'Bahasa Inggris Lanjutan (IPA)':
             questionFile = 'questions_bing_tk_ljt.js';

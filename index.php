@@ -77,7 +77,7 @@
         <option class="select-head" disabled>--- Mapel Pilihan IPA ---</option>
             <option value="">Matematika Lanjutan (IPA) - blm ada soal</option>
             <option value="">Fisika (IPA) - blm ada soal</option>
-            <option value="">Kimia (IPA) - blm ada soal</option>
+            <option value="Kimia (IPA)">Kimia (IPA) - blm ada soal</option>
             <option value="">Biologi (IPA) - blm ada soal</option>
             <option value="Bahasa Inggris Lanjutan (IPA)">Bahasa Inggris Lanjutan (IPA)</option>
 
@@ -85,7 +85,7 @@
             <option value="Sosiologi (IPS)">Sosiologi (IPS)</option>
             <option value="Geografi (IPS)">Geografi (IPS)</option>
             <option value="Ekonomi (IPS)">Ekonomi (IPS)</option>
-            <option value="">Sejarah (IPS) - blm ada soal</option>
+            <option value="Sejarah (IPS)">Sejarah (IPS)</option>
             <option value="Bahasa Inggris Lanjutan (IPS)">Bahasa Inggris Lanjutan (IPS)</option>
     </select>
 

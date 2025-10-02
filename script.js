@@ -76,18 +76,22 @@ function startExam() {
     }
     
     // 3. Tampilkan teks soal (seperti sebelumnya)
-    soalText.textContent = q.text;
+    // ===== UBAH .textContent MENJADI .innerHTML =====
+    soalText.innerHTML = q.text || ''; // Ditambahkan '|| ""' agar tidak error jika teks soal kosong
 
-    // 4. Tampilkan pilihan (seperti sebelumnya)
+    // 4. Tampilkan pilihan jawaban (seperti sebelumnya)
     q.choices.forEach((c, idx) => {
       const o = document.createElement('div');
       o.className = 'option' + (answers[currentIndex] === idx ? ' selected' : '');
-      o.textContent = c;
+      
+      // ===== UBAH .textContent MENJADI .innerHTML =====
+      o.innerHTML = c; // INI PERUBAHAN UTAMANYA
+
       o.addEventListener('click', () => {
         answers[currentIndex] = idx;
         sessionStorage.setItem('sim_answers', JSON.stringify(answers));
-        renderQuestion(); // Render ulang untuk menunjukkan pilihan
-        renderNav(); // Update navigasi
+        renderQuestion();
+        renderNav();
       });
       optionsEl.appendChild(o);
     });
