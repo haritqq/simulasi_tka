@@ -77,7 +77,7 @@
         <option class="select-head" disabled>--- Mapel Pilihan IPA ---</option>
             <option value="">Matematika Lanjutan (IPA) - blm ada soal</option>
             <option value="">Fisika (IPA) - blm ada soal</option>
-            <option value="Kimia (IPA)">Kimia (IPA) - blm ada soal</option>
+            <option value="Kimia (IPA)">Kimia (IPA)</option>
             <option value="">Biologi (IPA) - blm ada soal</option>
             <option value="Bahasa Inggris Lanjutan (IPA)">Bahasa Inggris Lanjutan (IPA)</option>
 
@@ -116,7 +116,8 @@
 
     <!-- Footer -->
   <div class="footer">
-    Copyright © 2025 SMA Negeri 8 Banda Aceh. All rights reserved.
+    Copyright © 2025 SMA Negeri 8 Banda Aceh. All rights reserved.<br>
+    Made with <g-emoji class="g-emoji" alias="heart" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/2764.png">❤️</g-emoji> by Harits
   </div>
 </body>
 </html>

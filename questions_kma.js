@@ -7,11 +7,11 @@ const QUESTIONS = [
     stimulus: [],
     text: 'Suatu unsur memiliki notasi <img src="images/soal-kma/soal-1.png" style="vertical-align: middle;"> Konfigurasi elektron dan letak unsur tersebut dalam sistem periodik berturut-turut adalah ....',
     choices: [
-      '<img src="images/soal-kma/1a.png" style="vertical-align: middle;">',
-      '<img src="images/soal-kma/1b.png" style="vertical-align: middle;">',
-      '<img src="images/soal-kma/1c.png" style="vertical-align: middle;">',
-      '<img src="images/soal-kma/1d.png" style="vertical-align: middle;">',
-      '<img src="images/soal-kma/1e.png" style="vertical-align: middle;">'
+      '[Ar] 4s<sup>2</sup> 3d<sup>10</sup> 4p<sup>5</sup>, Golongan VIIA, periode 4',
+      '[Ar] 3d<sup>10</sup> 4s<sup>2</sup> 4p<sup>5</sup>, Golongan VIIB, periode 4',
+      '[Ar] 3d<sup>10</sup> 4s2 4p<sup>5</sup>, Golongan VB, periode 4',
+      '[Ar] 3d<sup>10</sup> 4s<sup>2</sup> 4p<sup>6</sup>, Golongan VIIA, periode 4',
+      '[Ar] 3d<sup>10</sup> 4s<sup>2</sup> 4p<sup>3</sup>, Golongan VA, periode 4'
     ],
     answer: 0 // A
   },
@@ -20,32 +20,32 @@ const QUESTIONS = [
     stimulus: [
       {
         type: 'text',
-        content: 'Perhatikan notasi unsur berikut! P, Q, R berturut-turut nomor atomnya 11, 12, 13.'
+        content: 'Perhatikan notasi unsur berikut! <br> P, Q, R berturut-turut nomor atomnya 11, 12, 13.'
       },
       {
         type: 'image',
-        url: 'images/soal-kma/grafik-energi-ionisasi-2.png'
+        url: 'images/soal-kma/soal-2.png'
       }
     ],
     text: 'Grafik yang menunjukkan hubungan nomor atom dan energi pengionan pertama yang benar adalah ....',
     choices: ['A', 'B', 'C', 'D', 'E'],
-    answer: 2 // C (Berdasarkan gambar, titik P(11), Q(12) turun, R(13) naik sedikit dari Q)
+    answer: 0 // A (Berdasarkan gambar, titik P(11), Q(12) turun, R(13) naik sedikit dari Q)
   },
   {
     id: 3,
     stimulus: [
       {
         type: 'image',
-        url: 'images/soal-kma/tabel-natrium-neon-klor-3.png'
+        url: 'images/soal-kma/soal-3.png'
       }
     ],
     text: 'Berdasarkan data di atas tentukan Benar atau Salah untuk setiap pernyataan berikut tentang unsur Natrium, Neon, dan Klor!',
     choices: [
-      'Pernyataan 1: Benar, Pernyataan 2: Benar, Pernyataan 3: Benar',
-      'Pernyataan 1: Benar, Pernyataan 2: Benar, Pernyataan 3: Salah',
-      'Pernyataan 1: Salah, Pernyataan 2: Benar, Pernyataan 3: Benar',
-      'Pernyataan 1: Salah, Pernyataan 2: Salah, Pernyataan 3: Salah',
-      'Pernyataan 1: Benar, Pernyataan 2: Salah, Pernyataan 3: Benar'
+      'Pernyataan 1: Benar, <br>Pernyataan 2: Benar, <br>Pernyataan 3: Benar',
+      'Pernyataan 1: Benar, <br>Pernyataan 2: Benar, <br>Pernyataan 3: Salah',
+      'Pernyataan 1: Salah, <br>Pernyataan 2: Benar, <br>Pernyataan 3: Benar',
+      'Pernyataan 1: Salah, <br>Pernyataan 2: Salah, <br>Pernyataan 3: Salah',
+      'Pernyataan 1: Benar, <br>Pernyataan 2: Salah, <br>Pernyataan 3: Benar'
     ],
     answer: 2 // C (Na & Ne (P3) salah, Cl (7) Benar, Ne (2,8) Benar)
   },
@@ -58,16 +58,16 @@ const QUESTIONS = [
       },
       {
         type: 'image',
-        url: 'images/soal-kma/tabel-hidrokarbon-4.png'
+        url: 'images/soal-kma/soal-4.png'
       }
     ],
-    text: 'Berdasarkan informasi tersebut, tentukan **Tepat** atau **Tidak Tepat** untuk setiap pernyataan mengenai titik didih dari isomer-isomer hidrokarbon berikut!',
+    text: 'Berdasarkan informasi tersebut, tentukan <b>Tepat</b> atau <b>Tidak Tepat</b> untuk setiap pernyataan mengenai titik didih dari isomer-isomer hidrokarbon berikut!',
     choices: [
-      'Pernyataan 1: Tepat, Pernyataan 2: Tidak Tepat, Pernyataan 3: Tepat',
-      'Pernyataan 1: Tidak Tepat, Pernyataan 2: Tepat, Pernyataan 3: Tepat',
-      'Pernyataan 1: Tepat, Pernyataan 2: Tepat, Pernyataan 3: Tidak Tepat',
-      'Pernyataan 1: Tidak Tepat, Pernyataan 2: Tidak Tepat, Pernyataan 3: Tepat',
-      'Pernyataan 1: Tepat, Pernyataan 2: Tidak Tepat, Pernyataan 3: Tidak Tepat'
+      'Pernyataan 1: Tepat, <br>Pernyataan 2: Tidak Tepat, <br>Pernyataan 3: Tepat',
+      'Pernyataan 1: Tidak Tepat, <br>Pernyataan 2: Tepat, <br>Pernyataan 3: Tepat',
+      'Pernyataan 1: Tepat, <br>Pernyataan 2: Tepat, <br>Pernyataan 3: Tidak Tepat',
+      'Pernyataan 1: Tidak Tepat, <br>Pernyataan 2: Tidak Tepat, <br>Pernyataan 3: Tepat',
+      'Pernyataan 1: Tepat, <br>Pernyataan 2: Tidak Tepat, <br>Pernyataan 3: Tidak Tepat'
     ],
     answer: 0 // A (n-butana > 2-metilpropana (Tepat); 2,2-dimetilpropana < 2-metilbutana (Tidak Tepat); n-heksana > 3-metilpentana (Tepat))
   },
@@ -76,24 +76,29 @@ const QUESTIONS = [
     stimulus: [
       {
         type: 'text',
-        content: 'Produksi <img src="images/soal-kma/rumus-h2so4-5.png" style="vertical-align: middle;"> dilakukan melalui proses kontak yang berlangsung melalui reaksi kesetimbangan berikut: <img src="images/soal-kma/reaksi-kesetimbangan-5.png" style="vertical-align: middle;">. Untuk meningkatkan produksi <img src="images/soal-kma/rumus-h2so4-5.png" style="vertical-align: middle;"> dapat dilakukan dengan memanfaatkan reaksi kesetimbangan yang terjadi.'
+        content: 'Produksi <img src="images/soal-kma/soal-5_1.png" style="vertical-align: middle;"> dilakukan melalui proses kontak yang berlangsung melalui reaksi kesetimbangan berikut: <img src="images/soal-kma/soal-5_2.png" style="vertical-align: middle;">. Untuk meningkatkan produksi <img src="images/soal-kma/soal-5_3.png" style="vertical-align: middle;"> dapat dilakukan dengan memanfaatkan reaksi kesetimbangan yang terjadi. <br><br> 1. Memperbesar volume wadah <br>2. Menambah O<sub>2</sub> ke dalam campuran reaksi <br>3. Menurunkan tekanan gas <br>4. Menurunkan suhu reaksi <br>5. Mengeluarkan SO<sub>3</sub> dari wadah</ol>'
       }
     ],
-    text: 'Pernyataan mana saja yang menunjukkan upaya yang dapat dilakukan untuk mendapatkan <img src="images/soal-kma/rumus-so3-5.png" style="vertical-align: middle;"> sebanyak-banyaknya? Pilihlah jawaban yang benar! (Jawaban benar lebih dari satu)',
+    text: 'Pernyataan mana saja yang menunjukkan upaya yang dapat dilakukan untuk mendapatkan <img src="images/soal-kma/soal-5_4.png" style="vertical-align: middle;"> sebanyak-banyaknya? Pilihlah jawaban yang benar! (Jawaban benar lebih dari satu)',
     choices: [
-      'Memperbesar volume wadah',
-      'Menambah <img src="images/soal-kma/rumus-o2-5.png" style="vertical-align: middle;"> ke dalam campuran reaksi',
-      'Menurunkan tekanan gas',
-      'Menurunkan suhu reaksi',
-      'Mengeluarkan <img src="images/soal-kma/rumus-so3-5.png" style="vertical-align: middle;"> dari wadah'
+      '1,3,4',
+      '1,2,4',
+      '2,3,5',
+      '2,4,5',
+      '3,4,5'
     ],
-    answer: [1, 3, 4] // Menambah O2 (reaktan), Menurunkan Suhu (eksoterm bergeser ke produk), Mengeluarkan SO3 (produk) - Jika ini adalah soal multiple choice kompleks, kuncinya biasanya adalah Menambah O2, Menurunkan Suhu (sesuai hukum Le Chatelier)
+    answer: 3 // D. 2,4,5 (Tambah O2, turunkan suhu (eksoterm), keluarkan SO3)
   },
   {
     id: 6,
     stimulus: [],
     text: 'Ion kalsium yang bergabung dengan ion fosfat akan membentuk senyawa kalsium fosfat dengan rumus kimia ....',
-    choices: ['CaPO4', 'CaPO4 (opsi duplikat)', 'Ca3(PO4)2', 'Ca2(PO4)3', 'Ca2(PO4)2'],
+    choices: [
+      'CaPO4', 
+      'CaPO<sub>4</sub>', 
+      'Ca<sub>3</sub>(PO<sub>4</sub>)<sub>2</sub>', 
+      'Ca<sub>2</sub>(PO<sub>4</sub>)<sub>3</sub>', 
+      'Ca<sub>2</sub>(PO<sub>4</sub>)<sub>2</sub>'],
     answer: 2 // C. Ca3(PO4)2 (Ca2+ dan PO4 3-)
   },
   {
@@ -101,7 +106,7 @@ const QUESTIONS = [
     stimulus: [
       {
         type: 'text',
-        content: 'Diketahui persamaan reaksi : MgO (s) + H2SO4 (aq) → MgSO4 (aq) + H2O (l)'
+        content: 'Diketahui persamaan reaksi : MgO <sub>(s)</sub> + H<sub>2</sub>SO<sub>4 (aq)</sub> → MgSO<sub>4</sub> (aq) + H<sub>2</sub>O <sub>(l)</sub>'
       }
     ],
     text: 'Nama zat-zat pereaksi (reaktan) dari reaksi diatas adalah ....',
@@ -118,26 +123,26 @@ const QUESTIONS = [
     id: 8,
     stimulus: [
       {
-        type: 'image',
-        url: 'images/soal-kma/perbedaan-co2-h2o-8.png'
+        type: 'text',
+        content: 'Molekul karbondioksida (CO<sub>2</sub>) dan molekul air (H<sub>2</sub>O) sama-sama tersusun dari atom-atom yang berikatan kovalen. namun, kedua molekul ini memiliki sifat fisis yang berbeda secara signifikan. <br><br> 1.Ikatan kovalen dalam CO2 adalah ikatan tunggal, sedangkan dalam H2O adalah ikatan rangkap dua. <br> 2. H2O memiliki titik didih lebih tinggi dari CO2 karena memiliki ikatan hidrogen, sedangkan CO2 tidak.<br> 3. Ikatan kovalen yang terbentuk antara atom H dan O pada H2O lebih kuat daripada ikatan rangkap dua pada CO2.<br> 4. Senyawa H2O memiliki titik leleh lebih rendah dari CO2.<br> 5. Ikatan kovalen dalam CO2 adalah ikatan rangkap, sedangkan dalam H2O adalah ikatan tunggal.'
       }
     ],
-    text: 'Pilihlah **dua pernyataan yang benar** yang menjelaskan perbedaan sifat molekul karbondioksida (CO2) dan molekul air (H2O)!',
+    text: 'Pilihlah <b>pernyataan yang benar</b> yang menjelaskan perbedaan sifat molekul karbondioksida (CO2) dan molekul air (H2O)!',
     choices: [
-      'Ikatan kovalen dalam CO2 adalah ikatan tunggal, sedangkan dalam H2O adalah ikatan rangkap dua.',
-      'H2O memiliki titik didih lebih tinggi dari CO2 karena memiliki ikatan hidrogen, sedangkan CO2 tidak.',
-      'Ikatan kovalen yang terbentuk antara atom H dan O pada H2O lebih kuat daripada ikatan rangkap dua pada CO2.',
-      'Senyawa H2O memiliki titik leleh lebih rendah dari CO2.',
-      'Ikatan kovalen dalam CO2 adalah ikatan rangkap, sedangkan dalam H2O adalah ikatan tunggal.'
+      '1,2,3',
+      '2,4,5',
+      '1,3,4',
+      '2,3,5',
+      '1,4,5'
     ],
-    answer: [1, 4] // Opsi B (H2O ada ikatan H, titik didih tinggi) dan Opsi E (CO2 rangkap, H2O tunggal)
+    answer: 3 // D = 2,3,5
   },
   {
     id: 9,
     stimulus: [
       {
         type: 'image',
-        url: 'images/soal-kma/struktur-lewis-h3po4-9.png'
+        url: 'images/soal-kma/soal-9.png'
       }
     ],
     text: 'Pasangan elektron yang terbentuk secara kovalen koordinasi ditunjukkan pada nomor .... (Nomor atom H=1; O=8; P=15)',
@@ -148,8 +153,8 @@ const QUESTIONS = [
     id: 10,
     stimulus: [
       {
-        type: 'image',
-        url: 'images/soal-kma/tabel-sifat-fisik-10.png'
+        type: 'text',
+        content: 'Perhatikan data sifat fisik dari dua buah zat berikut!<br> <img src="images/soal-kma/soal-10.png" style="vertical-align: middle;">',
       }
     ],
     text: 'Berdasarkan data tersebut, jenis ikatan yang terdapat pada senyawa P dan Q berturut-turut adalah ....',
@@ -166,168 +171,175 @@ const QUESTIONS = [
     id: 11,
     stimulus: [
       {
-        type: 'image',
-        url: 'images/soal-kma/reaksi-kimia-11.png'
+        type: 'text',
+        content: 'Suatu senyawa hidrokarbon mempunyai rumus struktur:<br> <img src="images/soal-kma/soal-11.png" style="vertical-align: middle;">'
       }
     ],
-    text: 'Perhatikan persamaan reaksi berikut! Berdasarkan persamaan reaksi di atas, bilangan oksidasi (biloks) atom Mn pada senyawa MnO2 dan MnSO4 berturut-turut adalah ....',
-    choices: ['+4 dan +7', '+7 dan +2', '+4 dan +2', '+2 dan +4', '+7 dan +4'],
-    answer: 2 // C. +4 dan +2 (MnO2 -> Mn = +4; MnSO4 -> SO4 = -2, Mn = +2)
+    text: 'Nama senyawa yang merupakan isomer posisi dari senyawa hidrokarbon tersebut adalah ....',
+    choices: [
+      '2 Metil - 2 pentena',
+      '2 Metil - 3 pentena',
+      '3 Metil - 1 pentena',
+      '2,3 Metil - 2 butena',
+      '2,3 Metil - 3 butena'
+    ],
+    answer: 3 //D
   },
   {
     id: 12,
-    stimulus: [
-      {
-        type: 'text',
-        content: 'Dalam sebuah percobaan membuat es krim, 150 gram gula tebu (C12H22O11, Mr=342 gr/mol) dilarutkan dalam 200 gram air. Jika volume larutan total menjadi 250 mL setelah gula larut sempurna.'
-      }
+    stimulus: [],
+    text: 'Dalam sebuah percobaan membuat es krim, 150 gram gula tebu (C12H22O11, Mr=342 gr/mol) dilarutkan dalam 200 gram air. Jika volume larutan total menjadi 250 mL setelah gula larut sempurna, maka konsentrasi molaritas (M) gula dalam larutan es krim tersebut adalah sekitar....',
+    choices: [
+      '1,00 M',
+      '1,75 M',
+      '2,19 M',
+      '2,50 M',
+      '3,00 M'
     ],
-    text: 'Konsentrasi molaritas (M) gula dalam larutan es krim tersebut adalah sekitar....',
-    choices: ['1,00 M', '1,75 M', '2,19 M', '2,50 M', '3,00 M'],
-    answer: 1 // B. 1,75 M (M = (150/342) / (250/1000) = 0,438 / 0,25 ≈ 1,75 M)
+    answer: 1 // B
   },
   {
     id: 13,
     stimulus: [
       {
-        type: 'image',
-        url: 'images/soal-kma/tabel-sifat-koligatif-13.png'
+        type: 'text',
+        content: 'diketahui persamaan reaksi asam basa Bronsted-Lowry berikut: <br>(1) C<sub>2</sub>H<sub>4</sub>O<sub>2</sub> ⇌ H<sub>3</sub>O<sup>+</sup> + C<sub>2</sub>H<sub>3</sub>O<sub>2</sub><sup>-</sup> <br>(2) CH<sub>3</sub>COOH + HNO<sub>3</sub> ⇌ CH<sub>3</sub>COOH<sub>2</sub><sub>+</sub> + NO<sub>3</sub><sup>-</sup>'
       }
     ],
-    text: 'Data hasil eksperimen menunjukkan sifat koligatif larutan nonelektrolit. Berdasarkan data di atas, larutan yang memiliki titik didih tertinggi adalah ....',
+    text: 'Dari persamaan reaksi di atas yang merupakan pasangan asam-basa Brosted-Lowry adalah',
     choices: [
-      'Larutan K',
-      'Larutan L',
-      'Larutan M',
-      'Larutan N',
-      'Larutan O'
+      'CH<sub>3</sub>COOH<sub>2+</sub> dan NO<sub>3-</sub>',
+      'CH<sub>3</sub>COOH dan NO<sub>3-</sub>',
+      'C<sub>2</sub>H<sub>4</sub>O<sub>2</sub> dan H<sub>2</sub>O',
+      'CH<sub>3</sub>COOH dan HNO<sub>3</sub>',
+      'C<sub>2</sub>H<sub>4</sub>O<sub>2</sub> dan C<sub>2</sub>H<sub>3</sub>O<sub>2</sub><sup>-</sup>'
     ],
-    answer: 4 // E. Larutan O (Memiliki konsentrasi molalitas paling besar (0,3 m) sehingga kenaikan titik didihnya paling besar)
+    answer: 4 //E
   },
   {
     id: 14,
     stimulus: [
       {
-        type: 'image',
-        url: 'images/soal-kma/tabel-ph-asam-basa-14.png'
+        type: 'text',
+        content: 'Suatu larutan penyangga dibuat dengan mencampurkan 500ml larutan CH<sub>3</sub>COOH 0,1 M )ka=10<sup>-5</sup>) dan 500ml larutan NaOH 0,05 M. pilihlah dua pernyataan yang benar yang menggabmarkan sifat larutan yang dihasilkan!'
       }
     ],
-    text: 'Hasil pengujian terhadap lima larutan asam-basa disajikan dalam tabel. Pernyataan yang benar berdasarkan data pada tabel tersebut adalah ....',
+    text: '1. pH larutan adalah 5<br>2. Rasio mol asam lemah terhadap basa konjugasinya adalah 1:1<br> 3. pH larutan adalah 5 - log 1,5<br>4. Larutan ini tidak dapat menahan perubahan pH karena asam lemahnya tidak bersisa<br>5. Larutan ini mengandung CH<sub>3</sub>COOH dan CH<sub>3</sub>COONa',
     choices: [
-      'Larutan 1 adalah larutan basa',
-      'Larutan 3 dan 5 merupakan larutan penyangga',
-      'Larutan 4 merupakan larutan asam kuat',
-      'Larutan 2 merupakan larutan basa kuat',
-      'Larutan 5 adalah larutan asam lemah'
+      '1, 2, 5',
+      '1, 2, 3',
+      '2, 3, 5',
+      '3, 4, 5',
+      '1, 4, 5'
     ],
-    answer: 2 // C. Larutan 4 memiliki pH = 1, yang merupakan ciri larutan asam kuat.
+    answer: 0 // 1,2,5
   },
   {
     id: 15,
     stimulus: [
       {
-        type: 'image',
-        url: 'images/soal-kma/grafik-titrasi-15.png'
+        type: 'text',
+        content: 'Gambar berikut merupakan reaksi antar 2 gram pualam dengan 100 mL lauran HCl. <br> <img src="images/soal-kma/soal-15.png" style="vertical-align: middle;">'
       }
     ],
-    text: 'Kurva titrasi di atas menunjukkan titrasi antara ....',
+    text: 'Laju reaksi yang hanya dipengaruhi oleh konsentrasi adalah nomor ....',
     choices: [
-      'Basa kuat dengan asam kuat',
-      'Basa lemah dengan asam kuat',
-      'Asam kuat dengan basa kuat',
-      'Asam lemah dengan basa kuat',
-      'Asam kuat dengan basa lemah'
+      '1 terhadap 2',
+      '1 terhadap 3',
+      '2 terhadap 3',
+      '2 terhadap 4',
+      '4 terhadap 5'
     ],
-    answer: 4 // E. Asam kuat dengan basa lemah (Dimulai dari pH ~1-2 (asam kuat), titik ekivalen pada pH < 7, dan diakhiri dengan penambahan basa lemah)
+    answer: 3 //D
   },
   {
     id: 16,
     stimulus: [
       {
-        type: 'image',
-        url: 'images/soal-kma/reaksi-redoks-16.png'
+        type: 'text',
+        content: 'Reaksi pembakaran sempurna gas propana (C3H8) adalah: C<sub>3</sub>H<sub>8</sub>(g) + 5O<sub>2</sub>(g) → 3CO<sub>2</sub>(g) + 4H<sub>2</sub>O(g) ; ΔH = -2220 kJ/mol. <br><br> Tentukan <b>Benar</b> atau <b>Salah</b> untuk setiap pernyataan berikut! <br><br> img src="images/soal-kma/soal-16.png" style="vertical-align: middle;">'
       }
     ],
-    text: 'Perhatikan persamaan reaksi redoks berikut! Zat yang mengalami oksidasi dan reduksi berturut-turut adalah ....',
+    text: 'Perhatikan gambar percobaan korosi berikut! Korosi paling cepat terjadi pada kondisi tabung....',
     choices: [
-      'Al dan FeO',
-      'FeO dan Al',
-      'Al dan Fe',
-      'Fe dan FeO',
-      'Al dan Al2O3'
+      'benar, salah, benar',
+      'benar, salah, salah',
+      'salah, benar, salah',
+      'salah, salah, benar',
+      'benar, benar, benar'
     ],
-    answer: 0 // A. Al dan FeO (Al: 0 -> +3 (Oksidasi); FeO: Fe +2 -> 0 (Reduksi))
+    answer: 0 // benar,salah,benar
   },
   {
     id: 17,
     stimulus: [
       {
         type: 'image',
-        url: 'images/soal-kma/sel-volta-17.png'
+        url: 'images/soal-kma/soal-17.png' 
       }
     ],
-    text: 'Gambar di atas merupakan contoh sel volta yang bekerja berdasarkan reaksi spontan. Jika elektroda Ag menjadi katoda dan elektroda Zn menjadi anoda. Pernyataan yang **tepat** mengenai reaksi yang terjadi adalah ....',
+    text: '<br>',
     choices: [
-      'Potensial sel reaksi adalah Esel = -1,56 volt',
-      'Notasi sel: Zn(s) | Zn2+(aq) || Ag+(aq) | Ag(s)',
-      'Reaksi yang terjadi di katoda adalah Zn(s) → Zn2+(aq) + 2e-',
-      'Elektroda Zn bertambah massa dan Ag berkurang massa',
-      'Elektron mengalir dari Ag ke Zn'
+      'benar, salah, benar',
+      'benar, salah, salah',
+      'salah, benar, salah',
+      'salah, salah, benar',
+      'benar, benar, benar'
     ],
-    answer: 1 // B. Notasi sel sudah benar (Anoda || Katoda)
+    answer: 2 // salah,benar,benar
   },
   {
     id: 18,
     stimulus: [
       {
         type: 'image',
-        url: 'images/soal-kma/elektrolisis-18.png'
+        url: 'images/soal-kma/soal-18.png' 
       }
     ],
-    text: 'Perhatikan gambar sel elektrolisis lelehan KI dengan elektroda C berikut! Jika arus listrik 10 Ampere dialirkan melalui lelehan KI selama 1930 detik (Ar K = 39, I = 127). Massa endapan yang terbentuk di katoda adalah ....',
+    text: '<br>',
     choices: [
-      '0,39 gram',
-      '3,9 gram',
-      '7,8 gram',
-      '12,7 gram',
-      '39 gram'
+      '1, 3, 1, 6',
+      '3, 3, 2, 6',
+      '2, 3, 2, 6',
+      '2, 3, 2, 3',
+      '6, 2, 3, 1'
     ],
-    answer: 1 // B. 3,9 gram (W = (Ar/n) * (I*t / 96500) = (39/1) * (10*1930 / 96500) ≈ 3.9 gram)
+    answer: 1 // B. 3,9 gram
   },
   {
     id: 19,
     stimulus: [
       {
         type: 'image',
-        url: 'images/soal-kma/hidrokarbon-19.png'
+        url: 'images/soal-kma/soal-19.png' 
       }
     ],
-    text: 'Perhatikan struktur senyawa karbon berikut! Nama IUPAC dari senyawa tersebut adalah ....',
+    text: 'Data yang berhubungan dengan tepat ditunjukan oleh pasangan nomor ....',
     choices: [
-      '3,4-dimetil-3-propil-1-heksena',
-      '3-metil-4-propil-1-heksena',
-      '4-etil-3-metil-1-heptena',
-      '3-etil-4-metil-1-heptena',
-      '4-etil-3-metil-2-heptena'
+      '1 dan 2',
+      '1 dan 3',
+      '2 dan 4',
+      '3 dan 5',
+      '4 dan 5'
     ],
-    answer: 2 // C. 4-etil-3-metil-1-heptena (rantai terpanjang 7, rangkap 1 di C1, metil di C3, etil di C4)
+    answer: 1 // B
   },
   {
     id: 20,
     stimulus: [
       {
-        type: 'image',
-        url: 'images/soal-kma/senyawa-karbon-20.png'
+        type: 'text',
+        content: 'Terdapat empat notol zat yang berisi dua jenis reaktan dengan dua variasi berkonsentrasi berbeda untuk masing masing reaktan. <br> <img src="images/soal-kma/soal-20.png" style="vertical-align: middle;"> <br><br> Murir tersebut melakukan perhitungan untuk menentukan larutan dari botol mana yang akan digunakan dan menentukan jumlah larutannya untuk menghasilkan jumlah zat yang diinginkan.'
       }
     ],
-    text: 'Perhatikan beberapa reaksi senyawa karbon berikut! Pasangan reaksi adisi, substitusi, dan eliminasi berturut-turut ditunjukkan oleh nomor ....',
+    text: 'Komposisi mana saya yang dapat menghasilkan tepat 1,435 gram padatan AgCI ? <br>Tentukan <b>Tepat</b> atau <b>Tidak Tepat</b> pada pilihan komposisi berikut! <br> (Ar Ag = 108;Ar N = 14; Ar O = 16; Ar Na = 23; Ar N = 14; Cl = 35,5) <br> img src="images/soal-kma/soal-20-2.png" style="vertical-align: middle;">',
     choices: [
-      '(1), (2), dan (3)',
-      '(2), (3), dan (1)',
-      '(3), (1), dan (2)',
-      '(3), (2), dan (1)',
-      '(1), (3), dan (2)'
+      'tidak tepat semua',
+      'tepat semua',
+      'tidak tepat, tepat, tepat',
+      'tidak tepat, tepat, tidak tepat',
+      'tepat, tidak tepat, tepat'
     ],
-    answer: 2 // C. (3) Adisi (rangkap 2 ke jenuh), (1) Substitusi (CnH2n+2 ganti H dengan X), (2) Eliminasi (CnH2n+2 ke rangkap 2)
+    answer: 3 // tidak tepat, tepat, tidak tepat
   }
 ];
