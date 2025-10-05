@@ -18,6 +18,7 @@
   </style>
   <link rel="stylesheet" href="vendor/header-footer.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- SweetAlert2 -->
 </head>
 
 <body>
@@ -100,7 +101,12 @@
       const mapel = document.getElementById('mata_pelajaran').value; // Ambil nilai mapel
 
       if(!nama || !no || !kelas || !mapel){
-        alert('Mohon lengkapi semua data terlebih dahulu (Nama, NISN, Kelas, dan Mata Pelajaran).');
+        Swal.fire({
+          icon: 'warning',
+          title: 'Data Tidak Lengkap',
+          html: 'Mohon lengkapi semua data terlebih dahulu <br> <b>Nama</b>, <b>NISN</b>, <b>Kelas</b>, dan <b>Mata Pelajaran</b>.',
+          confirmButtonText: 'OK',
+        });
         return;
       }
       
