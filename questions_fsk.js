@@ -1,4 +1,4 @@
-// Daftar 20 soal pilihan ganda KIMIA FIX
+// Daftar 20 soal pilihan ganda FISIKA 
 // 
 
 const QUESTIONS = [
@@ -268,7 +268,7 @@ const QUESTIONS = [
       'salah, salah, benar',
       'benar, benar, benar'
     ],
-    answer: 0 // A = benar,salah,benar
+    answer: 0 // benar,salah,benar
   },
   {
     id: 17,

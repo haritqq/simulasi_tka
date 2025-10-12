@@ -46,7 +46,13 @@
     gap: 10px;
     margin-bottom: 20px;
   }
-  .score {
+  .scorevalue {
+    font-size: 2em;
+    font-weight: 700;
+    color: #777;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .scoretotal {
     font-size: 4em;
     font-weight: 700;
     color: #0b66ff;
@@ -133,7 +139,8 @@
     <h1>Selamat, Ujian Selesai! 🎉</h1>
     <p class="message">Kerja keras Anda membuahkan hasil. Berikut adalah nilai Anda.</p>
     <div class="score-container">
-      <div class="score" id="scoreValue">0</div>
+      <div class="scorevalue" id="scoreValue">0</div>
+      <div class="scoretotal" id="scoreTotal">0</div>
       <div class="meta-info" id="meta"></div>
     </div>
     
@@ -156,10 +163,11 @@
     const score = params.get('score') || 0;
     const nama = sessionStorage.getItem('sim_nama') || '---';
     const no = sessionStorage.getItem('sim_no') || '---';
-    const mapel = sessionStorage.getItem('sim_mapel') || 'Bahasa Indonesia';
+    const mapel = sessionStorage.getItem('sim_mapel') || 'Bahasa Indonesia'; // jangan sentuh/hapus, gak tahu kenapa klo hilang error -- males ngecek
 
     // 3. Tampilkan skor dengan benar
-    document.getElementById('scoreValue').textContent = score + ' / ' + totalQuestions;
+    document.getElementById('scoreValue').textContent = 'Benar ' + score + ' dari ' + totalQuestions + ' Soal';
+    document.getElementById('scoreTotal').innerHTML = 'Nilai : ' + score / totalQuestions * 100;
     // document.getElementById('meta').textContent = nama + ' — Absen: ' + no;
     // document.getElementById('meta').textContent = `${nama} — No. Absen: ${no}`;
 

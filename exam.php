@@ -18,6 +18,7 @@
     <div id="options" class="options"></div>
         <div class="nav-buttons">
           <button id="prevBtn" class="btn secondary">Sebelumnya</button>
+          <button id="raguBtn" class="btn warning">Ragu-ragu</button>
           <button id="nextBtn" class="btn primary">Selanjutnya</button>
         </div>
       </div>
@@ -27,7 +28,7 @@
         <h3>Navigasi Soal</h3>
         <div id="nav-grid" class="nav-grid"></div>
         <div style="margin-top:12px;text-align:center">
-          <button id="finishBtn" class="btn danger">Selesaikan Ujian</button>
+          <button id="finishBtn" class="btn danger"><b>Selesaikan Ujian</b></button>
         </div>
       </div>
     </aside>
@@ -42,6 +43,7 @@
         document.getElementById('exam-title').innerText = 'Ujian TKA - ' + mapel;
     }
 
+    // bingung mau disingkat tapi nanti jelek database
     switch(mapel) {
         case 'Matematika (Wajib)':
             questionFile = 'questions_mtk.js';

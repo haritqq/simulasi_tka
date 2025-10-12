@@ -184,7 +184,11 @@ $chartDataMapel = json_encode(['labels' => $labels_mapel, 'data' => $data_mapel]
         },
         options: {
             scales: {
-                y: { beginAtZero: true, max: 10 }
+                y: { 
+                  beginAtZero: true, 
+                  ticks : {values: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]},
+                  max: 20
+                }
             }
         }
     });
@@ -206,7 +210,40 @@ $chartDataMapel = json_encode(['labels' => $labels_mapel, 'data' => $data_mapel]
         },
         options: {
             scales: {
-                y: { beginAtZero: true, max: 10 }
+                y: { 
+                  beginAtZero: true, 
+                  ticks : {values: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]},
+                  max: 20
+                }
+                // x: {
+                //     ticks: {
+                //         callback: function(value, index, values) {
+                //             const label = this.getLabelForValue(value);
+                //             const maxLength = 10; // Tentukan batas karakter per baris (misal: 10 karakter)
+
+                //             // Jika panjang label melebihi batas, bagi menjadi baris baru
+                //             if (label.length > maxLength) {
+                //                 // Cari spasi terdekat untuk membagi kata
+                //                 let firstHalf = label.substring(0, maxLength);
+                //                 let secondHalf = label.substring(maxLength);
+
+                //                 // Cek apakah pemisahan jatuh di tengah kata
+                //                 const lastSpace = firstHalf.lastIndexOf(' ');
+                //                 if (lastSpace !== -1) {
+                //                     // Pindahkan kata yang terpotong ke baris kedua
+                //                     secondHalf = firstHalf.substring(lastSpace) + secondHalf;
+                //                     firstHalf = firstHalf.substring(0, lastSpace);
+                //                 }
+                                
+                //                 // Gabungkan dengan karakter newline
+                //                 return [firstHalf, secondHalf];
+                                
+                //                 // anjing puyeng makin ngaco, cari label x di documentasi
+                //             }
+                //             return label;
+                //         }
+                //     }
+                // }
             }
         }
     });
