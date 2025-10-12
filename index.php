@@ -42,12 +42,41 @@
       </span>Nama Lengkap</label>
     <input id="nama" name="nama" type="text" placeholder="Nama lengkap" required>
     
-    <label for="no_absen">
-      <span style="font-size: 13px; color: Dodgerblue;">
-      <i class="fa-solid fa-address-card"></i>
-      </span> NISN</label>
+<label for="no_absen">
+  <span style="font-size: 13px; color: Dodgerblue;">
+    <i class="fa-solid fa-address-card"></i>
+  </span> NISN
+</label>
+
+<input id="no_absen" 
+       name="no_absen" 
+       type="number" 
+       placeholder="Contoh: 0123456789" 
+       required
+       oninput="validateNISN(this)">
+
+<p id="nisn_error" style="color: red; font-size: 12px; display: none;">
+  ⚠️ NISN harus 10 digit!
+</p>
+
+<script>
+function validateNISN(inputElement) {
+    const minLength = 10;
+    const errorElement = document.getElementById('nisn_error');
+
+    // 1. Batasi input agar tidak lebih dari 10 digit
+    if (inputElement.value.length > minLength) {
+        inputElement.value = inputElement.value.slice(0, minLength);
+    }
     
-    <input id="no_absen" name="no_absen" type="number" maxlength="10" placeholder="Contoh: 12345678" required>
+    // 2. Tampilkan/sembunyikan pesan error
+    if (inputElement.value.length < minLength) {
+        errorElement.style.display = 'block'; // Tampilkan pesan
+    } else {
+        errorElement.style.display = 'none'; // Sembunyikan pesan
+    }
+}
+</script>
     
     <label for="kelas"><span style="font-size: 13px; color: Dodgerblue;">
       <i class="fa-solid fa-house-user"></i>
