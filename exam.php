@@ -14,10 +14,11 @@
         <div class="timer">Sisa Waktu: <span id="countdown">60:00</span></div>
       </div>
       <div class="card soal-card">
-        <div id="soal-text" class="soal-text">Memuat soal...</div>
-        <div id="options" class="options"></div>
+    <div id="stimulus-container" class="stimulus"></div> <div id="soal-text" class="soal-text"></div>
+    <div id="options" class="options"></div>
         <div class="nav-buttons">
           <button id="prevBtn" class="btn secondary">Sebelumnya</button>
+          <button id="raguBtn" class="btn warning">Ragu-ragu</button>
           <button id="nextBtn" class="btn primary">Selanjutnya</button>
         </div>
       </div>
@@ -27,13 +28,14 @@
         <h3>Navigasi Soal</h3>
         <div id="nav-grid" class="nav-grid"></div>
         <div style="margin-top:12px;text-align:center">
-          <button id="finishBtn" class="btn danger">Selesaikan Ujian</button>
+          <button id="finishBtn" class="btn danger"><b>Selesaikan Ujian</b></button>
         </div>
       </div>
     </aside>
   </div>
 
   <script>
+    // SCRIPT LOADER DINAMIS v3 (Paling Aman)
     const mapel = sessionStorage.getItem('sim_mapel');
     let questionFile = '';
 
@@ -41,15 +43,43 @@
         document.getElementById('exam-title').innerText = 'Ujian TKA - ' + mapel;
     }
 
+    // bingung mau disingkat tapi nanti jelek database
     switch(mapel) {
-        case 'Matematika':
+        case 'Matematika (Wajib)':
             questionFile = 'questions_mtk.js';
             break;
-        case 'IPA':
+        case 'IPA (Wajib)':
             questionFile = 'questions_ipa.js';
             break;
+        case 'Bahasa Inggris (Wajib)':
+            questionFile = 'questions_bing.js';
+            break;
+        case 'Kimia (IPA)':
+            questionFile = 'questions_kma.js';
+            break;
+        case 'Ekonomi (IPS)':
+            questionFile = 'questions_eko.js';
+            break;
+        case 'Geografi (IPS)':
+            questionFile = 'questions_geo.js';
+            break;
+        case 'Sosiologi (IPS)':
+            questionFile = 'questions_sos.js';
+            break;
+        case 'Sejarah (IPS)':
+            questionFile = 'questions_sjrah.js';
+            break;
+        case 'Bahasa Inggris Lanjutan (IPA)':
+            questionFile = 'questions_bing_tk_ljt.js';
+            break;
+        case 'Bahasa Inggris Lanjutan (IPS)':
+            questionFile = 'questions_bing_tk_ljt.js';
+            break;
+        case 'PJOK':
+            questionFile = 'questions_pjok.js';
+            break;
         default:
-            questionFile = 'questions.js';
+            questionFile = 'questions_bind.js';
             break;
     }
 
@@ -57,20 +87,24 @@
         const questionScript = document.createElement('script');
         questionScript.src = questionFile;
         
-        // **BAGIAN PENTING:**
-        // script.js baru akan dimuat SETELAH questionScript selesai dimuat.
+        // Langkah 1: Setelah file soal dimuat...
         questionScript.onload = function() {
             const mainScript = document.createElement('script');
             mainScript.src = 'script.js';
+
+            // Langkah 2: ...muat file script utama. Setelah itu...
+            mainScript.onload = function() {
+                // Langkah 3: ...jalankan fungsi startExam() yang ada di dalamnya.
+                startExam(); 
+            };
+            
             document.body.appendChild(mainScript);
         };
         
         document.body.appendChild(questionScript);
     } else {
-        // Fallback jika terjadi error
         alert("Tidak bisa memuat soal, mata pelajaran tidak ditemukan.");
     }
   </script>
-  
-  </body>
+</body>
 </html>

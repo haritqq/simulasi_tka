@@ -1,12 +1,10 @@
-// FILE: script.js (FINAL DENGAN SWEETALERT + FITUR RAGU-RAGU)
+// FILE: script.js (FINAL DENGAN FUNGSI STIMULUS)
 
 function startExam() {
   const TOTAL_MINUTES = 60;
   let timeLeft = TOTAL_MINUTES * 60;
   let currentIndex = 0;
-
   const answers = JSON.parse(sessionStorage.getItem('sim_answers') || '[]');
-  const raguStatus = JSON.parse(sessionStorage.getItem('sim_ragu') || '[]');
 
   const nama = sessionStorage.getItem('sim_nama');
   const no = sessionStorage.getItem('sim_no');
@@ -16,28 +14,26 @@ function startExam() {
     return;
   }
 
-  // === Ambil elemen dari halaman ===
   const countdownEl = document.getElementById('countdown');
-  const stimulusContainer = document.getElementById('stimulus-container'); // ambil element baru untuk stimulus
+  // === AMBIL ELEMENT BARU UNTUK STIMULUS ===
+  const stimulusContainer = document.getElementById('stimulus-container'); 
   const soalText = document.getElementById('soal-text');
   const optionsEl = document.getElementById('options');
   const prevBtn = document.getElementById('prevBtn');
   const nextBtn = document.getElementById('nextBtn');
-  const raguBtn = document.getElementById('raguBtn');
   const finishBtn = document.getElementById('finishBtn');
   const navGrid = document.getElementById('nav-grid');
+  const raguBtn = document.getElementById('raguBtn');
+  const raguStatus = JSON.parse(sessionStorage.getItem('sim_ragu') || '[]');
 
-  // === Render navigasi nomor soal ===
-function renderNav() {
+  function renderNav() {
   navGrid.innerHTML = '';
   QUESTIONS.forEach((q, i) => {
     const b = document.createElement('div');
     b.className = 'nav-item';
 
-    // Tandai soal yang sudah dijawab (jawaban harus berupa angka valid)
-    if (typeof answers[i] === 'number' && !isNaN(answers[i])) {
-      b.classList.add('done');
-    }
+    // Tandai soal yang sudah dijawab
+    if (answers[i] !== undefined) b.classList.add('done');
 
     // Tandai soal aktif
     if (i === currentIndex) b.classList.add('current');
@@ -45,77 +41,60 @@ function renderNav() {
     // Tandai soal ragu-ragu
     if (raguStatus[i]) b.classList.add('ragu');
 
-    // Nomor soal
-    const num = document.createElement('div');
-    num.className = 'nav-num';
-    num.textContent = i + 1;
-
-    // Label status kecil
-    const label = document.createElement('div');
-    label.className = 'nav-label';
-    if (i === currentIndex) {
-      label.textContent = '▶ Aktif';
-    } else if (raguStatus[i]) {
-      label.textContent = '⚠ Ragu';
-    } else if (typeof answers[i] === 'number' && !isNaN(answers[i])) {
-      label.textContent = '✔ Selesai';
-    } else {
-      label.textContent = '';
-    }
-
-    b.appendChild(num);
-    b.appendChild(label);
-
+    b.textContent = (i + 1);
     b.addEventListener('click', () => {
       currentIndex = i;
       renderQuestion();
     });
-
     navGrid.appendChild(b);
   });
-}
+  }
 
-
-
-  // === Render soal ===
+  // =======================================================================
+  // === FUNGSI INI YANG DIUBAH SECARA SIGNIFIKAN ===
   function renderQuestion() {
     if (typeof QUESTIONS === 'undefined' || !QUESTIONS[currentIndex]) {
-      soalText.textContent = "Gagal memuat soal. Silakan coba muat ulang halaman.";
-      return;
+        soalText.textContent = "Gagal memuat soal. Silakan coba muat ulang halaman.";
+        return;
     }
+      
+    const q = QUESTIONS[currentIndex];
 
     // 1. KOSONGKAN AREA DARI SOAL SEBELUMNYA
-    const q = QUESTIONS[currentIndex];
     stimulusContainer.innerHTML = '';
     soalText.textContent = '';
     optionsEl.innerHTML = '';
 
-    // 2. Tampilkan stimulus (jika ada)
+    // 2. LOGIKA BARU: PERIKSA DAN TAMPILKAN STIMULUS
     if (q.stimulus && q.stimulus.length > 0) {
-      q.stimulus.forEach(item => {
-        if (item.type === 'text') {
-          const p = document.createElement('p');
-          p.className = 'stimulus-text';
-          p.innerHTML = item.content.replace(/\n/g, '<br>');
-          stimulusContainer.appendChild(p);
-        } else if (item.type === 'image') {
-          const img = document.createElement('img');
-          img.src = item.url;
-          img.alt = 'Gambar Soal';
-          img.className = 'stimulus-image';
-          stimulusContainer.appendChild(img);
-        }
-      });
+        q.stimulus.forEach(item => {
+            if (item.type === 'text') {
+                const p = document.createElement('p');
+                p.className = 'stimulus-text';
+                // Menggunakan innerHTML agar tag <br> berfungsi untuk baris baru
+                p.innerHTML = item.content.replace(/\n/g, '<br>'); 
+                stimulusContainer.appendChild(p);
+            } else if (item.type === 'image') {
+                const img = document.createElement('img');
+                img.src = item.url;
+                img.alt = 'Gambar Soal';
+                img.className = 'stimulus-image';
+                stimulusContainer.appendChild(img);
+            }
+        });
     }
-
+    
     // 3. Tampilkan teks soal (seperti sebelumnya)
+    // ===== UBAH .textContent MENJADI .innerHTML =====
     soalText.innerHTML = q.text || ''; // Ditambahkan '|| ""' agar tidak error jika teks soal kosong
 
     // 4. Tampilkan pilihan jawaban (seperti sebelumnya)
     q.choices.forEach((c, idx) => {
       const o = document.createElement('div');
       o.className = 'option' + (answers[currentIndex] === idx ? ' selected' : '');
-      o.innerHTML = c; //tadinya text content, sekarang innerhtml
+      
+      // ===== UBAH .textContent MENJADI .innerHTML =====
+      o.innerHTML = c; // INI PERUBAHAN UTAMANYA
 
       o.addEventListener('click', () => {
         answers[currentIndex] = idx;
@@ -123,7 +102,6 @@ function renderNav() {
         renderQuestion();
         renderNav();
       });
-
       optionsEl.appendChild(o);
     });
 
@@ -133,52 +111,46 @@ function renderNav() {
 
     renderNav(); // Panggil renderNav di akhir untuk update 'current'
   }
+  // === AKHIR DARI FUNGSI YANG DIUBAH ===
+  // =======================================================================
 
-  // === Tombol Navigasi ===
+
   prevBtn.addEventListener('click', () => {
     if (currentIndex > 0) {
       currentIndex--;
       renderQuestion();
     }
   });
-
   nextBtn.addEventListener('click', () => {
     if (currentIndex < QUESTIONS.length - 1) {
       currentIndex++;
       renderQuestion();
     }
   });
-
-  // === Tombol Ragu-Ragu ===
   raguBtn.addEventListener('click', () => {
-    raguStatus[currentIndex] = !raguStatus[currentIndex];
-    sessionStorage.setItem('sim_ragu', JSON.stringify(raguStatus));
+      // Toggle status ragu-ragu untuk soal saat ini
+      raguStatus[currentIndex] = !raguStatus[currentIndex];
+      sessionStorage.setItem('sim_ragu', JSON.stringify(raguStatus));
     renderNav();
   });
-
   finishBtn.addEventListener('click', () => {
   if (confirm('Yakin ingin mengakhiri ujian?')) submitExam();
   });
-
-  // === Tombol Selesai Ujian (SweetAlert2) ===
+  // gagal pakai sweet alert
   // finishBtn.addEventListener('click', () => {
   //   Swal.fire({
-  //     title: 'Yakin ingin mengakhiri ujian?',
-  //     text: 'Pastikan semua soal sudah dijawab dengan benar.',
   //     icon: 'warning',
+  //     title: 'Yakin ingin mengakhiri ujian?',
   //     showCancelButton: true,
-  //     confirmButtonColor: '#3085d6',
-  //     cancelButtonColor: '#d33',
-  //     confirmButtonText: 'Ya, akhiri!',
+  //     confirmButtonText: 'Ya',
   //     cancelButtonText: 'Batal'
-  //   }).then(result => {
+  //   }).then((result) => {
   //     if (result.isConfirmed) {
   //       submitExam();
   //     }
   //   });
   // });
 
-  // === Timer ===
   function tick() {
     const m = Math.floor(timeLeft / 60).toString().padStart(2, '0');
     const s = (timeLeft % 60).toString().padStart(2, '0');
@@ -197,7 +169,6 @@ function renderNav() {
     sessionStorage.setItem('sim_timeleft', timeLeft);
   }, 1000);
 
-  // === Hitung Skor ===
   function computeScore() {
     let score = 0;
     for (let i = 0; i < QUESTIONS.length; i++) {
@@ -206,15 +177,13 @@ function renderNav() {
     return score;
   }
 
-  // === Submit Ujian ===
   function submitExam(isAuto = false) {
-    clearInterval(timerInterval); //menghentikan timer saat submit
+    clearInterval(timerInterval); // Hentikan timer saat submit
     const kelas = sessionStorage.getItem('sim_kelas');
     const mapel = sessionStorage.getItem('sim_mapel');
 
     const score = computeScore();
     sessionStorage.setItem('sim_questions', JSON.stringify(QUESTIONS));
-
     const payload = {
       nama: nama,
       no_absen: no,
@@ -233,31 +202,20 @@ function renderNav() {
       body: JSON.stringify(payload)
     }).then(r => r.json()).then(data => {
       sessionStorage.clear();
-      window.location = 'result.php?score=' + score; // hapus bagian ini jika fitur sweatalert sudah berhasil ditambhakan.
-      // dibawah ini fitur sweatalert, belum bisa karena masih error
-      // Swal.fire({
-      //   icon: 'success',
-      //   title: 'Ujian Berakhir!',
-      //   text: 'Jawaban kamu berhasil disimpan.',
-      //   confirmButtonText: 'OK'
-      // }).then(() => {
-      //   window.location = 'result.php?score=' + score;
-      // });
+      window.location = 'result.php?score=' + score;
     }).catch(err => {
       console.error(err);
       alert('Terjadi kesalahan saat mengirim nilai.');
       // Swal.fire({
       //   icon: 'error',
       //   title: 'Terjadi Kesalahan',
-      //   text: 'Nilai tetap disimpan sementara. Mohon coba lagi nanti.',
+      //   text: 'Mohon coba lagi nanti.',
       //   confirmButtonText: 'OK'
-      // }).then(() => {
-      //   window.location = 'result.php?score=' + score;
       // });
       window.location = 'result.php?score=' + score;
     });
   }
 
-  // === Inisialisasi ===
+  // Inisialisasi render
   renderQuestion();
 }

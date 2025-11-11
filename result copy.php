@@ -46,13 +46,7 @@
     gap: 10px;
     margin-bottom: 20px;
   }
-  .scorevalue {
-    font-size: 2em;
-    font-weight: 700;
-    color: #777;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  .scoretotal {
+  .score {
     font-size: 4em;
     font-weight: 700;
     color: #0b66ff;
@@ -139,14 +133,13 @@
     <h1>Selamat, Ujian Selesai! 🎉</h1>
     <p class="message">Kerja keras Anda membuahkan hasil. Berikut adalah nilai Anda.</p>
     <div class="score-container">
-      <div class="scorevalue" id="scoreValue">0</div>
-      <div class="scoretotal" id="scoreTotal">0</div>
+      <div class="score" id="scoreValue">0</div>
       <div class="meta-info" id="meta"></div>
     </div>
     
     <div class="actions">
       <!-- <button id="exportPdf" class="btn primary">Export PDF</button> -->
-      <button id="back" class="btn secondary" onclick="location.href='index.php'">Kembali ke Halaman Login</button>
+      <button id="back" class="btn secondary" onclick="location.href='index.php'">Kembali ke Beranda</button>
     </div>
   </div>
 
@@ -156,18 +149,17 @@
 
     // 1. Ambil data soal yang sudah disimpan dari sessionStorage
     const QUESTIONS = JSON.parse(sessionStorage.getItem('sim_questions') || '[]');
-    const totalQuestions = QUESTIONS.length > 0 ? QUESTIONS.length : 20; // Default 20 jika gagal
+    const totalQuestions = QUESTIONS.length > 0 ? QUESTIONS.length : 10; // Default 10 jika gagal
 
     // 2. Ambil parameter lain dari URL dan sessionStorage
     const params = new URLSearchParams(location.search);
     const score = params.get('score') || 0;
     const nama = sessionStorage.getItem('sim_nama') || '---';
     const no = sessionStorage.getItem('sim_no') || '---';
-    const mapel = sessionStorage.getItem('sim_mapel') || 'Bahasa Indonesia'; // jangan sentuh/hapus, gak tahu kenapa klo hilang error -- males ngecek
+    const mapel = sessionStorage.getItem('sim_mapel') || 'Bahasa Indonesia';
 
     // 3. Tampilkan skor dengan benar
-    document.getElementById('scoreValue').textContent = 'Benar ' + score + ' dari ' + totalQuestions + ' Soal';
-    document.getElementById('scoreTotal').innerHTML = 'Nilai : ' + score / totalQuestions * 100;
+    document.getElementById('scoreValue').textContent = score + ' / ' + totalQuestions;
     // document.getElementById('meta').textContent = nama + ' — Absen: ' + no;
     // document.getElementById('meta').textContent = `${nama} — No. Absen: ${no}`;
 

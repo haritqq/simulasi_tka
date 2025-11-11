@@ -1,0 +1,99 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #e6f0fa;
+}
+
+/* Header */
+.header {
+  background: #2c6ebd;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  position: relative;
+}
+
+.header img {
+  width: 35px;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 10px;
+  background: #2c6ebd;
+  color: white;
+  font-size: 13px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+
+.form-group {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: #2c6ebd;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background: #1d5493;
+}
+
+/* Icon Animasi */
+.icon-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.icon {
+  width: 70px;
+  height: 70px;
+  background: #2c6ebd;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: float 3s ease-in-out infinite;
+}
+
+.icon img {
+  width: 40px;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
