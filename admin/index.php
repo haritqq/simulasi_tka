@@ -2,12 +2,10 @@
 // admin.php
 session_start();
 
-// ---- KONFIGURASI KONEKSI DATABASE ----
-// Ganti nilai-nilai ini dengan kredensial database Anda
 $servername = "localhost";
-$username = "root"; // Sesuaikan dengan username phpMyAdmin Anda
-$password = ""; // Sesuaikan dengan password phpMyAdmin Anda
-$dbname = "simulasi_tka"; // Pastikan nama database ini benar
+$username = "root"; 
+$password = ""; 
+$dbname = "simulasi_tka";
 
 // Buat koneksi
 $conn = new mysqli($servername, $username, $password, $dbname);
